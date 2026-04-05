@@ -62,6 +62,9 @@ Always produce the final note in Markdown format.
 - Integrate definitions, steps, commands, and tool explanations into the thematic sections.
 - Remove teacher references, direct speech, and quote formatting.
 - Keep terminology accurate and close to the lesson.
+- Preserve major introductory, organizational, and overview blocks when they matter to understanding the lesson.
+- Keep separately demonstrated tools as separate blocks when they were shown separately.
+- If an exact tool name is uncertain, keep the block and mark the name as needing verification instead of deleting it.
 - Add screenshots only when they materially help.
 - Do not include service sections in the contents.
 - End with a final links section; add a resources section only when it is useful.

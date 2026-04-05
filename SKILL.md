@@ -139,6 +139,9 @@ The finished note must still preserve all of these elements, but integrate them 
 
 Do not reduce the lesson to a thematic summary only.
 Preserve the teaching structure of the lesson and keep separately demonstrated tools, workflows, and blocks when they were shown as distinct parts of the material.
+Preserve all major lesson blocks even when they are introductory, organizational, or обзорные, if they carry meaningful context for the lesson.
+Do not collapse separately demonstrated tools into one generic formulation when the tools were shown as distinct items.
+If a tool name is uncertain in the transcript, do not remove the whole block. Keep the generalized description of what the tool does and mark the exact name as requiring verification.
 
 If the lesson contains course logistics, tool comparisons, setup details, or limitations, keep them if they are part of the actual teaching.
 If the lesson is mostly practical, let the note become more cheat-sheet-like and less essay-like.
