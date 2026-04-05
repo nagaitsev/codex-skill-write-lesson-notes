@@ -137,6 +137,9 @@ The finished note must still preserve all of these elements, but integrate them 
 - used resources when they are important enough to list
 - links and services mentioned in the lesson
 
+Do not reduce the lesson to a thematic summary only.
+Preserve the teaching structure of the lesson and keep separately demonstrated tools, workflows, and blocks when they were shown as distinct parts of the material.
+
 If the lesson contains course logistics, tool comparisons, setup details, or limitations, keep them if they are part of the actual teaching.
 If the lesson is mostly practical, let the note become more cheat-sheet-like and less essay-like.
 If the lesson is more conceptual, keep more connective prose between ideas.
