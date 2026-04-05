@@ -1,4 +1,4 @@
 interface:
-  display_name: "Write Lesson Notes"
-  short_description: "Turn lesson transcripts into verified notes"
-  default_prompt: "Use $write-lesson-notes to turn this lesson transcript and source materials into a verified study note in Markdown."
+  display_name: "Конспект занятия"
+  short_description: "Делает конспект по транскрибации"
+  default_prompt: "Используй $write-lesson-notes, чтобы превратить эту транскрибацию и материалы занятия в выверенный конспект в Markdown."

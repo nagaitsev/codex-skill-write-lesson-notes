@@ -1,22 +1,22 @@
 # Codex Skill: Write Lesson Notes
 
-Editorial-style Codex skill for turning lesson transcripts and supporting materials into compact Markdown notes.
+Скилл Codex для создания компактных конспектов занятий в формате Markdown на основе транскрибаций и дополнительных материалов.
 
-## What It Does
+## Что Делает
 
-- generates lesson notes in Markdown
-- builds `# Содержание` from final level-1 headings
-- writes direct subject-matter notes instead of retelling the lesson
-- supports practical section titles and compact subsection structure
-- allows optional images from local materials or the web
-- verifies terms, product names, hotkeys, and URLs before finalizing
+- создает конспекты занятий в Markdown
+- собирает `# Содержание` по итоговым заголовкам первого уровня
+- пишет прямой предметный текст без пересказа занятия
+- поддерживает практичные заголовки разделов и компактную структуру подразделов
+- позволяет добавлять изображения из локальных материалов или из интернета
+- проверяет термины, названия продуктов, горячие клавиши и ссылки перед финализацией
 
-## Files
+## Файлы
 
-- `SKILL.md` - main skill instructions
-- `agents/openai.yaml` - UI metadata
-- `references/editorial-note-template.md` - reference template and checklist
+- `SKILL.md` - основная инструкция скилла
+- `agents/openai.yaml` - UI-метаданные
+- `references/editorial-note-template.md` - шаблон и чеклист
 
-## Intended Trigger
+## Основные Триггеры
 
-Use for requests like `Напиши конспект занятия` or `Сгенери содержание`.
+Используйте для запросов вроде `Напиши конспект занятия` или `Сгенери содержание`.
