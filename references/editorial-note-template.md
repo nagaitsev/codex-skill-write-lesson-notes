@@ -62,9 +62,12 @@ Always produce the final note in Markdown format.
 - Integrate definitions, steps, commands, and tool explanations into the thematic sections.
 - Remove teacher references, direct speech, and quote formatting.
 - Keep terminology accurate and close to the lesson.
+- Prefer the actual teaching progression over a cleaner editorial regrouping.
 - Preserve major introductory, organizational, and overview blocks when they matter to understanding the lesson.
 - Preserve practically important technical and operational sub-blocks even when they seem secondary.
 - Keep separately demonstrated tools as separate blocks when they were shown separately.
+- Keep warnings and limitations inside the nearest relevant block unless they were clearly taught as a separate topic.
+- Prefer several smaller faithful sections over one merged abstract section.
 - Keep examples when they are the way the method is explained.
 - If an exact tool name is uncertain, keep the block and mark the name as needing verification instead of deleting it.
 - Keep homework rules, submission conditions, penalties, and required comments when they affect the student's work.

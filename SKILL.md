@@ -37,6 +37,7 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 2. Reconstruct the real map of the lesson from the transcript: the major blocks, their internal sub-blocks, and the order in which they were taught.
 3. Identify the real themes of the lesson, not abstract reporting buckets.
 4. Build the note around those themes in the clearest editorial order while preserving the factual teaching order of the lesson.
+5. When several structurings are possible, prefer the one that tracks the teacher's progression through tools, stages, examples, and decisions over a cleaner taxonomic regrouping by topic.
 4. Draft from the lesson content first.
 5. If there are editorial notes, verification notes, or a short summary of corrections, place them before `# Содержание`.
 6. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
@@ -116,6 +117,8 @@ Do not include service sections or editorial notes in the contents block.
 - Choose section titles that sound like useful study notes, not generic report labels.
 - If two headings contain the same meaning, prefer the shorter and more practical version.
 - Keep headings focused on the actual subject matter, not on the fact that something was shown, clarified, or demonstrated.
+- Do not introduce a new top-level thematic section if the source treated that material as a warning, constraint, or sub-point inside another block.
+- By default, keep warnings, limitations, and caveats attached to the nearest tool, method, or workflow block unless the lesson clearly treated them as a standalone topic.
 - Adjust density to the lesson itself: technical lessons may use more short lists; conceptual lessons may use more prose.
 - Write as a detailed study note, not as a thematic squeeze or broad summary of the topic.
 - Use bullets only when the content is inherently list-shaped:
@@ -144,6 +147,8 @@ Preserve the teaching structure of the lesson and keep separately demonstrated t
 Preserve all major lesson blocks even when they are introductory, organizational, or обзорные, if they carry meaningful context for the lesson.
 Preserve all practically important sub-blocks even when they seem technical, auxiliary, or operational.
 Do not collapse separately demonstrated tools into one generic formulation when the tools were shown as distinct items.
+Do not merge adjacent lesson themes into one broader category just because they are conceptually related.
+Prefer multiple smaller faithful blocks over one elegant but over-compressed synthesis.
 If the lesson explains a method through an example, keep the example as part of the explanation.
 If a tool name is uncertain in the transcript, do not remove the whole block. Keep the generalized description of what the tool does and mark the exact name as requiring verification.
 
