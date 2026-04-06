@@ -34,8 +34,9 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 ## Workflow
 
 1. Read the full transcript and all supplemental materials before drafting.
-2. Identify the real themes of the lesson, not abstract reporting buckets.
-3. Build the note around those themes in the clearest editorial order.
+2. Reconstruct the real map of the lesson from the transcript: the major blocks, their internal sub-blocks, and the order in which they were taught.
+3. Identify the real themes of the lesson, not abstract reporting buckets.
+4. Build the note around those themes in the clearest editorial order while preserving the factual teaching order of the lesson.
 4. Draft from the lesson content first.
 5. If there are editorial notes, verification notes, or a short summary of corrections, place them before `# Содержание`.
 6. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
@@ -116,6 +117,7 @@ Do not include service sections or editorial notes in the contents block.
 - If two headings contain the same meaning, prefer the shorter and more practical version.
 - Keep headings focused on the actual subject matter, not on the fact that something was shown, clarified, or demonstrated.
 - Adjust density to the lesson itself: technical lessons may use more short lists; conceptual lessons may use more prose.
+- Write as a detailed study note, not as a thematic squeeze or broad summary of the topic.
 - Use bullets only when the content is inherently list-shaped:
   - table of contents
   - short comparisons
@@ -140,10 +142,13 @@ The finished note must still preserve all of these elements, but integrate them 
 Do not reduce the lesson to a thematic summary only.
 Preserve the teaching structure of the lesson and keep separately demonstrated tools, workflows, and blocks when they were shown as distinct parts of the material.
 Preserve all major lesson blocks even when they are introductory, organizational, or обзорные, if they carry meaningful context for the lesson.
+Preserve all practically important sub-blocks even when they seem technical, auxiliary, or operational.
 Do not collapse separately demonstrated tools into one generic formulation when the tools were shown as distinct items.
+If the lesson explains a method through an example, keep the example as part of the explanation.
 If a tool name is uncertain in the transcript, do not remove the whole block. Keep the generalized description of what the tool does and mark the exact name as requiring verification.
 
 If the lesson contains course logistics, tool comparisons, setup details, or limitations, keep them if they are part of the actual teaching.
+Preserve homework, submission rules, criteria, penalties, required comments, and any conditions that affect the student's work.
 If the lesson is mostly practical, let the note become more cheat-sheet-like and less essay-like.
 If the lesson is more conceptual, keep more connective prose between ideas.
 
@@ -176,7 +181,8 @@ When transcript wording and supplemental materials differ:
 1. Prefer the transcript for what was actually taught.
 2. Use the materials to recover names, filenames, examples, slide structure, or screenshots when the transcript is noisy.
 3. Use web verification only for facts that can be checked externally.
-4. Do not replace the lesson with a generic web summary.
+4. Do not add new ideas that were not present in the lesson.
+5. Do not replace the lesson with a generic web summary or external reframing of the topic.
 
 ## Quality Bar
 
@@ -191,6 +197,9 @@ When transcript wording and supplemental materials differ:
 - Do not force a separate resources section if links and mentioned tools already cover that need.
 - Make sure the contents block matches the final substantive level-1 lesson topics only.
 - If there is a short note about corrected terminology or verified naming, keep it outside the main lesson structure, before the contents block.
+- Check whether the note preserves not only what was discussed, but how to work with it in practice.
+- Check whether separate tools, modes, warnings, limitations, working rules, and examples were preserved as separate meaningful parts.
+- Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
 ## Reference File
