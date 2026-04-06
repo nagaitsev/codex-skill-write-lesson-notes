@@ -74,3 +74,15 @@ Always produce the final note in Markdown format.
 - Add screenshots only when they materially help.
 - Do not include service sections in the contents.
 - End with a final links section; add a resources section only when it is useful.
+
+## Anti-Patterns
+
+- broad editorial summary instead of a faithful lesson note
+- cleaner regrouping that breaks the real order of the lesson
+- merging separately taught tools into one generic section
+- detached limitations section when warnings belong to a specific tool block
+- deleting examples that carry the method
+- adding recap language like `на занятии`, `урок показывает`, `преподаватель отмечает`
+- filler phrases before lists and procedures
+- dropping homework rules or operational conditions
+- excluding blocks only because a tool name needs verification

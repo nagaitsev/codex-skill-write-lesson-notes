@@ -207,6 +207,23 @@ When transcript wording and supplemental materials differ:
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
+## Anti-Patterns
+
+Avoid these failure modes:
+
+- turning the lesson into a broad editorial summary instead of a detailed study note
+- rebuilding the lesson into a cleaner taxonomy that no longer matches the teacher's progression
+- merging several separately taught tools or stages into one generalized block
+- moving warnings, limitations, or operational caveats into a detached abstract section when they were originally tied to a specific tool or workflow
+- dropping introductory, organizational, or review blocks that materially affect how the student should work
+- deleting examples that actually explain the method
+- replacing a concrete practical conclusion with a smoother but more generic statement
+- adding meta-language such as `на занятии`, `преподаватель показал`, `урок объясняет`
+- adding filler lead-ins before lists or procedures
+- omitting homework rules, submission conditions, penalties, or required comments
+- removing a whole block just because one tool name is noisy in the transcript
+- using the contents block as a dump for service sections, summaries, or editorial notes
+
 ## Reference File
 
 Use [references/editorial-note-template.md](references/editorial-note-template.md) as the default output skeleton and checklist.
