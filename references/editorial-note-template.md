@@ -86,3 +86,9 @@ Always produce the final note in Markdown format.
 - filler phrases before lists and procedures
 - dropping homework rules or operational conditions
 - excluding blocks only because a tool name needs verification
+
+## Final Self-Check
+
+- Re-read all rules, restrictions, and anti-patterns before returning the note.
+- If any rule is broken, fix the text and run the check again.
+- Return the result only after the full check passes with no known violations.

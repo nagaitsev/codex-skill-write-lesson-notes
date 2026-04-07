@@ -207,6 +207,20 @@ When transcript wording and supplemental materials differ:
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
+## Mandatory Final Validation
+
+After completing the draft, review all rules, requirements, restrictions, and anti-patterns in this skill before returning the final text.
+This review is mandatory.
+
+Validation procedure:
+
+1. Compare the finished note against every rule and restriction in `SKILL.md` and the reference template.
+2. If any single rule is violated, revise the note until the violation is removed.
+3. After revising, run the validation again from the start.
+4. Return the final note only after it passes this full re-check.
+
+Do not stop after one correction pass if violations still remain.
+
 ## Anti-Patterns
 
 Avoid these failure modes:
