@@ -47,6 +47,7 @@ Always produce the final note in Markdown format.
 
 ## Style Checklist
 
+- If one file is attached but another likely related lesson file exists in the same folder, ask whether to use both files or only the attached one before drafting.
 - Start with contents, not with a title.
 - If needed, place editorial or verification notes before the contents block.
 - Build the contents from the final substantive level-1 lesson headings only.

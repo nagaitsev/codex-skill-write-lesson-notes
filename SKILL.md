@@ -45,6 +45,13 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 8. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
 9. Correct factual surface details if needed, while preserving the lesson's substance.
 
+## Input Scope Rule
+
+If the user attaches or mentions one file, but the same folder contains another likely related lesson file, stop before drafting and ask whether to use both files or only the attached/mentioned file.
+This clarification is mandatory.
+
+Use this rule especially when transcript parts are split across nearby files such as `1.txt` and `2.txt`, `part_000.txt` and `part_001.txt`, or similarly named lesson fragments.
+
 ## Explicit Command: Generate Contents
 
 If the user explicitly asks `Сгенери содержание` and provides a Markdown document:
