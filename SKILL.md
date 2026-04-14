@@ -223,10 +223,20 @@ Validation procedure:
 
 1. Compare the finished note against every rule and restriction in `SKILL.md` and the reference template.
 2. If any single rule is violated, revise the note until the violation is removed.
-3. After revising, run the validation again from the start.
-4. Return the final note only after it passes this full re-check.
+3. Run a drying pass: remove words, phrases, repeated explanations, and second explanatory sentences that can be deleted without losing meaning or practical value.
+4. Preserve necessary details, examples, steps, warnings, and operational conditions; do not shorten by deleting meaningful lesson content.
+5. After revising, run the validation again from the start.
+6. Return the final note only after it passes this full re-check.
 
 Do not stop after one correction pass if violations still remain.
+
+Drying pass rule:
+
+- Prefer the shortest formulation that keeps the same meaning.
+- Delete duplicated explanations that restate the previous sentence.
+- Delete confirmation phrases like `также подчеркивает`, `это важно потому что`, or similar scaffolding when the point is already clear.
+- Do not keep both a rule and a second sentence that only repeats the same rule in different words.
+- Keep extra wording only when it adds a condition, exception, example, action, or practical nuance.
 
 ## Anti-Patterns
 
