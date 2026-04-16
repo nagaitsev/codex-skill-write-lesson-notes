@@ -54,15 +54,22 @@ Use this rule especially when transcript parts are split across nearby files suc
 
 ## Explicit Command: Generate Contents
 
-If the user explicitly asks `Сгенери содержание` and provides a Markdown document:
+If the user explicitly asks `Сделай содержание` or `Сгенери содержание` and provides a Markdown document:
 
 1. Read the existing Markdown document.
-2. Find all level-1 headings that begin with `# `.
+2. Find headings exclusively from lines that begin with exactly one level-1 marker: `# `.
 3. Ignore the `# Содержание` heading itself if it already exists.
 4. Ignore service or support headings such as `# Использованные ресурсы`, `# Ссылки на сайты и сервисы`, and other clearly non-topical blocks.
 5. Create or refresh the contents block at the top of the document.
-6. Represent each included level-1 heading as a flat bullet list item in the same order as it appears in the document.
+6. Represent each included level-1 heading as plain text in a flat bullet list in the same order as it appears in the document.
 7. Do not rewrite the body of the note unless the user asked for broader editing.
+
+Contents generation restrictions:
+
+- Do not include `##`, `###`, or deeper headings.
+- Do not generate Markdown links or anchors in the contents list.
+- Do not include file links, local paths, or URLs.
+- Use only the visible heading text after `# `.
 
 ## Structure Rules
 

@@ -51,6 +51,7 @@ Always produce the final note in Markdown format.
 - Start with contents, not with a title.
 - If needed, place editorial or verification notes before the contents block.
 - Build the contents from the final substantive level-1 lesson headings only.
+- For `Сделай содержание` or `Сгенери содержание`, use only `# ` headings and create a plain bullet list without links.
 - Use `---` before every major thematic `#` heading after the contents block.
 - Prefer prose paragraphs over bullets.
 - Write as direct subject matter notes, not as a recap of what happened in class.
