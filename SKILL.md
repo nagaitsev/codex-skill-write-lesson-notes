@@ -243,7 +243,13 @@ Drying pass rule:
 - Delete duplicated explanations that restate the previous sentence.
 - Delete confirmation phrases like `также подчеркивает`, `это важно потому что`, or similar scaffolding when the point is already clear.
 - Do not keep both a rule and a second sentence that only repeats the same rule in different words.
+- Delete closing reassurance sentences when they only summarize usefulness without adding a new action, condition, exception, or limitation.
 - Keep extra wording only when it adds a condition, exception, example, action, or practical nuance.
+
+Example:
+
+- Before: `Автоматическое удаление проводов работает не идеально. Оно может пропустить мелкие линии, ошибиться на дальнем плане, оставить фрагменты кабелей или испортить место, где провод перекрывал сложную архитектуру. Но даже частичное удаление может резко сократить объем ручной работы.`
+- After: `Автоматическое удаление проводов работает не идеально. Оно может пропустить мелкие линии, ошибиться на дальнем плане, оставить фрагменты кабелей или испортить место, где провод перекрывал сложную архитектуру.`
 
 ## Anti-Patterns
 

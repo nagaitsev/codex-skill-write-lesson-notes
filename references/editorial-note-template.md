@@ -94,5 +94,6 @@ Always produce the final note in Markdown format.
 - Re-read all rules, restrictions, and anti-patterns before returning the note.
 - If any rule is broken, fix the text and run the check again.
 - Run a drying pass: remove words, repeated explanations, and sentences that can be deleted without losing meaning.
+- Remove closing reassurance sentences that only say the tool is still useful after listing its limitations.
 - Do not dry the text by removing real lesson details, examples, warnings, steps, or operational conditions.
 - Return the result only after the full check passes with no known violations.
