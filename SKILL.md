@@ -244,12 +244,21 @@ Drying pass rule:
 - Delete confirmation phrases like `также подчеркивает`, `это важно потому что`, or similar scaffolding when the point is already clear.
 - Do not keep both a rule and a second sentence that only repeats the same rule in different words.
 - Delete closing reassurance sentences when they only summarize usefulness without adding a new action, condition, exception, or limitation.
+- Delete obvious negative-outcome explanations after a rule when the rule already contains the action and the consequence is predictable.
+- Compress long descriptive paragraphs into short operational theses when the details do not change what the student should do.
+- Shorten headings during the drying pass when a shorter heading keeps the same subject.
 - Keep extra wording only when it adds a condition, exception, example, action, or practical nuance.
 
 Example:
 
 - Before: `Автоматическое удаление проводов работает не идеально. Оно может пропустить мелкие линии, ошибиться на дальнем плане, оставить фрагменты кабелей или испортить место, где провод перекрывал сложную архитектуру. Но даже частичное удаление может резко сократить объем ручной работы.`
 - After: `Автоматическое удаление проводов работает не идеально. Оно может пропустить мелкие линии, ошибиться на дальнем плане, оставить фрагменты кабелей или испортить место, где провод перекрывал сложную архитектуру.`
+- Before: `Если нужен каталожный кадр на белом фоне, это обязательно указывается в промпте. Иначе модель может просто почистить исходную сцену, сохранив стол, интерьер, скатерть или другой исходный фон.`
+- After: `Если нужен каталожный кадр на белом фоне, это обязательно указывается в промпте.`
+- Before heading: `### Преломления и скатерть внутри стекла`
+- After heading: `### Преломления`
+- Before body: `Стакан со льдом или бокал на скатерти вручную ретушируется крайне тяжело. Нужно не просто вырезать объект, а заново построить искажения фона внутри стекла, цветовые пятна, преломления, блики и прозрачность. Генеративная модель в таких случаях особенно полезна: она понимает общий вид стекла и может создать правдоподобное преломление, которое вручную пришлось бы долго имитировать.`
+- After body: `Заново построить искажения фона внутри стекла, цветовые пятна, преломления, блики и прозрачность поможет генеративная модель.`
 
 ## Anti-Patterns
 
