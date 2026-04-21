@@ -96,6 +96,7 @@ Always produce the final note in Markdown format.
 - Run a drying pass: remove words, repeated explanations, and sentences that can be deleted without losing meaning.
 - Remove closing reassurance sentences that only say the tool is still useful after listing its limitations.
 - Remove predictable consequence sentences after a clear rule.
+- Remove negative or absence statements when they do not add a real limitation, action, exception, or working distinction.
 - Compress long descriptive paragraphs into short operational theses when possible.
 - Shorten headings when the shorter version preserves the same topic.
 - Do not dry the text by removing real lesson details, examples, warnings, steps, or operational conditions.

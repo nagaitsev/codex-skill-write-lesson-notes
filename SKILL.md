@@ -245,6 +245,7 @@ Drying pass rule:
 - Do not keep both a rule and a second sentence that only repeats the same rule in different words.
 - Delete closing reassurance sentences when they only summarize usefulness without adding a new action, condition, exception, or limitation.
 - Delete obvious negative-outcome explanations after a rule when the rule already contains the action and the consequence is predictable.
+- Delete negative or absence statements when they do not add a practical distinction, action, limitation, or exception.
 - Compress long descriptive paragraphs into short operational theses when the details do not change what the student should do.
 - Shorten headings during the drying pass when a shorter heading keeps the same subject.
 - Keep extra wording only when it adds a condition, exception, example, action, or practical nuance.
@@ -259,6 +260,8 @@ Example:
 - After heading: `### Преломления`
 - Before body: `Стакан со льдом или бокал на скатерти вручную ретушируется крайне тяжело. Нужно не просто вырезать объект, а заново построить искажения фона внутри стекла, цветовые пятна, преломления, блики и прозрачность. Генеративная модель в таких случаях особенно полезна: она понимает общий вид стекла и может создать правдоподобное преломление, которое вручную пришлось бы долго имитировать.`
 - After body: `Заново построить искажения фона внутри стекла, цветовые пятна, преломления, блики и прозрачность поможет генеративная модель.`
+- Before: `Волосы ретушируются теми же инструментами, что и кожа и фон: \`Healing Brush\`, \`Clone Stamp\`, \`Spot Healing Brush\`, \`Remove Tool\`, иногда генеративные инструменты. Полностью надежной кнопки "убрать все волоски" нет.`
+- After: `Волосы ретушируются теми же инструментами, что и кожа и фон: \`Healing Brush\`, \`Clone Stamp\`, \`Spot Healing Brush\`, \`Remove Tool\`, иногда генеративными инструментами.`
 
 ## Anti-Patterns
 
