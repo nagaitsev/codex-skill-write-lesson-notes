@@ -28,6 +28,10 @@ Default to the style shown in the user's preferred examples:
 - inside each section, use short meaningful `###` subheadings with prose underneath
 - end with `Ссылки на сайты и сервисы`
 - add `Использованные ресурсы` only when there are concrete materials, tools, files, demos, or source artifacts worth listing separately
+- prefer short subject-based level-1 headings that name the tool, task, or topic directly
+- keep adjacent practical topics as separate level-1 sections when they cover different tools, modes, problems, or workflows
+- use `###` only when the section genuinely splits into multiple meaningful subtopics
+- avoid meta-subheadings such as `Практический вывод`, `Почему это ценно`, or `Что здесь считается хорошим результатом`
 
 Do not default to rigid report sections like `Ключевые идеи и определения`, `Важные шаги и последовательности`, or `Термины и инструменты` unless the user explicitly asks for that format.
 
@@ -84,10 +88,10 @@ Use this default structure unless the user asks for another one:
 4. Repeating thematic blocks:
    - `---`
    - `# <тема блока>`
-   - several `### <смысловой подзаголовок>` subsections
+   - several `### <смысловой подзаголовок>` subsections when the block really contains multiple subtopics
    - 1 to 3 short paragraphs or a small flat list under each subsection
 5. Optional supporting blocks when useful:
-   - screenshot or image from the provided materials
+   - screenshot or image from the provided materials, especially for concrete interface tools, tabs, modes, or settings
    - short commands, filenames, or paths in backticks
    - compact comparison lists
 6. Final service sections:
@@ -131,7 +135,10 @@ Do not include service sections or editorial notes in the contents block.
 - Choose section titles that sound like useful study notes, not generic report labels.
 - If two headings contain the same meaning, prefer the shorter and more practical version.
 - Keep headings focused on the actual subject matter, not on the fact that something was shown, clarified, or demonstrated.
+- Prefer short level-1 headings that directly name the tool, task, or problem.
+- Do not overload level-1 headings with conclusions, evaluations, or long descriptive framing if the same meaning can move into the first paragraph.
 - Do not introduce a new top-level thematic section if the source treated that material as a warning, constraint, or sub-point inside another block.
+- Do not merge adjacent practical topics into one top-level section if they involve different tools, interface modes, task types, or problem classes.
 - By default, keep warnings, limitations, and caveats attached to the nearest tool, method, or workflow block unless the lesson clearly treated them as a standalone topic.
 - Adjust density to the lesson itself: technical lessons may use more short lists; conceptual lessons may use more prose.
 - Write as a detailed study note, not as a thematic squeeze or broad summary of the topic.
@@ -142,8 +149,11 @@ Do not include service sections or editorial notes in the contents block.
   - resource lists
   - final links
 - Do not pad the note with generic filler headings.
+- Do not use meta-subheadings like `Практический вывод`, `Почему это ценно`, `Что здесь считается хорошим результатом`, or similar editorial wrappers when the same point can be stated directly.
+- Do not create a `###` subheading for a single short block unless it marks a real switch to another tool, mode, example, rule, or limitation.
 - Do not narrate the drafting process in the final output.
 - If screenshots or images from slides or materials materially clarify the lesson and are available locally, include them near the relevant section.
+- Prefer placing interface screenshots next to the exact tool, tab, mode, or setting they explain.
 - If useful images are not present locally but can be confidently found online, they may also be included when they add real explanatory value.
 
 ## Content Coverage
@@ -218,6 +228,10 @@ When transcript wording and supplemental materials differ:
 - If there is a short note about corrected terminology or verified naming, keep it outside the main lesson structure, before the contents block.
 - Check whether the note preserves not only what was discussed, but how to work with it in practice.
 - Check whether separate tools, modes, warnings, limitations, working rules, and examples were preserved as separate meaningful parts.
+- Check whether neighboring practical topics were kept separate when they belong to different tools, modes, or tasks.
+- Check whether top-level headings are short and subject-based rather than explanatory.
+- Check whether any `###` heading is only a wrapper for one short paragraph and can be removed.
+- Check whether meta-subheadings can be replaced by a direct heading or by starting the paragraph immediately.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
@@ -270,12 +284,15 @@ Avoid these failure modes:
 - turning the lesson into a broad editorial summary instead of a detailed study note
 - rebuilding the lesson into a cleaner taxonomy that no longer matches the teacher's progression
 - merging several separately taught tools or stages into one generalized block
+- merging neighboring practical topics into one top-level section when the lesson treats them as separate tasks or tools
 - moving warnings, limitations, or operational caveats into a detached abstract section when they were originally tied to a specific tool or workflow
 - dropping introductory, organizational, or review blocks that materially affect how the student should work
 - deleting examples that actually explain the method
 - replacing a concrete practical conclusion with a smoother but more generic statement
 - adding meta-language such as `на занятии`, `преподаватель показал`, `урок объясняет`
 - adding filler lead-ins before lists or procedures
+- using editorial subheadings like `Практический вывод` or `Почему это ценно` where a direct subject heading or plain paragraph would be clearer
+- forcing `###` wrappers around single short paragraphs that do not introduce a real subtopic
 - omitting homework rules, submission conditions, penalties, or required comments
 - removing a whole block just because one tool name is noisy in the transcript
 - using the contents block as a dump for service sections, summaries, or editorial notes

@@ -93,11 +93,16 @@ Always produce the final note in Markdown format.
 
 - Re-read all rules, restrictions, and anti-patterns before returning the note.
 - If any rule is broken, fix the text and run the check again.
+- Split neighboring practical topics into separate `#` sections when they cover different tools, modes, problems, or tasks.
+- Keep `#` headings short and subject-based.
+- Remove meta-subheadings like `Практический вывод` or `Почему это ценно` when a direct heading or immediate paragraph works better.
+- Remove `###` wrappers that only cover one short paragraph and do not mark a real subtopic.
 - Run a drying pass: remove words, repeated explanations, and sentences that can be deleted without losing meaning.
 - Remove closing reassurance sentences that only say the tool is still useful after listing its limitations.
 - Remove predictable consequence sentences after a clear rule.
 - Remove negative or absence statements when they do not add a real limitation, action, exception, or working distinction.
 - Compress long descriptive paragraphs into short operational theses when possible.
 - Shorten headings when the shorter version preserves the same topic.
+- Place helpful interface screenshots near the exact tool, tab, mode, or setting they explain.
 - Do not dry the text by removing real lesson details, examples, warnings, steps, or operational conditions.
 - Return the result only after the full check passes with no known violations.
