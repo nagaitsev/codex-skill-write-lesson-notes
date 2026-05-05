@@ -37,7 +37,7 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 
 ## Workflow
 
-1. Read the full transcript and all supplemental materials before drafting.
+1. Read the full transcript and all supplemental materials before drafting, but only from the files the user explicitly attached, mentioned, or approved for use.
 2. Reconstruct the real map of the lesson from the transcript: the major blocks, their internal sub-blocks, and the order in which they were taught.
 3. Identify the real themes of the lesson, not abstract reporting buckets.
 4. Build the note around those themes in the clearest editorial order while preserving the factual teaching order of the lesson.
@@ -51,10 +51,15 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 
 ## Input Scope Rule
 
+Use only the files the user explicitly attached, named, linked, or otherwise approved for this task.
+Do not automatically inspect or incorporate nearby files from the same folder just because they look related.
+Do not automatically open or use neighboring PDFs, presentations, screenshots, transcripts, markdown files, or other materials unless the user explicitly provided them or confirmed that they should be used.
+
 If the user attaches or mentions one file, but the same folder contains another likely related lesson file, stop before drafting and ask whether to use both files or only the attached/mentioned file.
 This clarification is mandatory.
 
 Use this rule especially when transcript parts are split across nearby files such as `1.txt` and `2.txt`, `part_000.txt` and `part_001.txt`, or similarly named lesson fragments.
+Folder proximity is not permission to use a file.
 
 ## Explicit Command: Generate Contents
 
@@ -167,6 +172,7 @@ The finished note must still preserve all of these elements, but integrate them 
 - links and services mentioned in the lesson
 
 Do not reduce the lesson to a thematic summary only.
+Do not enrich the lesson note with content from files that were not explicitly provided for this run.
 Preserve the teaching structure of the lesson and keep separately demonstrated tools, workflows, and blocks when they were shown as distinct parts of the material.
 Preserve all major lesson blocks even when they are introductory, organizational, or обзорные, if they carry meaningful context for the lesson.
 Preserve all practically important sub-blocks even when they seem technical, auxiliary, or operational.
@@ -232,6 +238,7 @@ When transcript wording and supplemental materials differ:
 - Check whether top-level headings are short and subject-based rather than explanatory.
 - Check whether any `###` heading is only a wrapper for one short paragraph and can be removed.
 - Check whether meta-subheadings can be replaced by a direct heading or by starting the paragraph immediately.
+- Check whether every factual detail, screenshot, PDF, and supplemental artifact used in the note came only from user-provided or user-approved files.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
@@ -293,6 +300,7 @@ Avoid these failure modes:
 - adding filler lead-ins before lists or procedures
 - using editorial subheadings like `Практический вывод` or `Почему это ценно` where a direct subject heading or plain paragraph would be clearer
 - forcing `###` wrappers around single short paragraphs that do not introduce a real subtopic
+- pulling in nearby PDFs, presentations, transcripts, screenshots, or other files that were not explicitly provided or approved for the current task
 - omitting homework rules, submission conditions, penalties, or required comments
 - removing a whole block just because one tool name is noisy in the transcript
 - using the contents block as a dump for service sections, summaries, or editorial notes

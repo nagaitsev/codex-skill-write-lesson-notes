@@ -97,6 +97,8 @@ Always produce the final note in Markdown format.
 - Keep `#` headings short and subject-based.
 - Remove meta-subheadings like `Практический вывод` or `Почему это ценно` when a direct heading or immediate paragraph works better.
 - Remove `###` wrappers that only cover one short paragraph and do not mark a real subtopic.
+- Verify that every file used for the note was explicitly provided or explicitly approved by the user.
+- Remove any content that came from nearby files discovered automatically without user permission.
 - Run a drying pass: remove words, repeated explanations, and sentences that can be deleted without losing meaning.
 - Remove closing reassurance sentences that only say the tool is still useful after listing its limitations.
 - Remove predictable consequence sentences after a clear rule.
