@@ -2,6 +2,7 @@
 
 Use this template as the default structure unless the user asks for a different layout.
 Always produce the final note in Markdown format.
+By default, save the finished note as a `.md` file.
 
 ```md
 <краткие редакторские или верификационные замечания при необходимости, до содержания>
@@ -99,6 +100,7 @@ Always produce the final note in Markdown format.
 - Remove `###` wrappers that only cover one short paragraph and do not mark a real subtopic.
 - Verify that every file used for the note was explicitly provided or explicitly approved by the user.
 - Remove any content that came from nearby files discovered automatically without user permission.
+- Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
 - Run a drying pass: remove words, repeated explanations, and sentences that can be deleted without losing meaning.
 - Remove closing reassurance sentences that only say the tool is still useful after listing its limitations.
 - Remove predictable consequence sentences after a clear rule.

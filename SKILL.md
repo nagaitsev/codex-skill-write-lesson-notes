@@ -13,6 +13,8 @@ Preserve the lesson's meaning, terminology, and structure, but present them as a
 ## Mandatory Requirement
 
 Always produce the lesson note in Markdown format.
+By default, create the result as a `.md` file instead of only printing the note in chat.
+Treat the written Markdown file as the primary final artifact.
 Always present the content as direct study material, not as a retelling of what happened in class.
 
 ## Core Principle
@@ -43,11 +45,12 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 4. Build the note around those themes in the clearest editorial order while preserving the factual teaching order of the lesson.
 5. When several structurings are possible, prefer the one that tracks the teacher's progression through tools, stages, examples, and decisions over a cleaner taxonomic regrouping by topic.
 4. Draft from the lesson content first.
-5. If there are editorial notes, verification notes, or a short summary of corrections, place them before `# Содержание`.
-6. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
-7. Exclude service blocks and non-lesson blocks from the contents.
-8. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
-9. Correct factual surface details if needed, while preserving the lesson's substance.
+5. Write the note into a `.md` file by default unless the user explicitly asked for chat-only output.
+6. If there are editorial notes, verification notes, or a short summary of corrections, place them before `# Содержание`.
+7. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
+8. Exclude service blocks and non-lesson blocks from the contents.
+9. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
+10. Correct factual surface details if needed, while preserving the lesson's substance.
 
 ## Input Scope Rule
 
@@ -111,6 +114,7 @@ Do not include service sections or editorial notes in the contents block.
 ## Writing Rules
 
 - Always produce the final note in Markdown format.
+- By default, save the final result as a `.md` file instead of returning only a chat response.
 - Use `#` for major sections and `###` for local subsections.
 - Write in simple, clear language.
 - Remove direct speech, references to the teacher, and quote formatting.
@@ -239,6 +243,7 @@ When transcript wording and supplemental materials differ:
 - Check whether any `###` heading is only a wrapper for one short paragraph and can be removed.
 - Check whether meta-subheadings can be replaced by a direct heading or by starting the paragraph immediately.
 - Check whether every factual detail, screenshot, PDF, and supplemental artifact used in the note came only from user-provided or user-approved files.
+- Check whether the final result was written to a `.md` file unless the user explicitly requested chat-only output.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
@@ -301,6 +306,7 @@ Avoid these failure modes:
 - using editorial subheadings like `Практический вывод` or `Почему это ценно` where a direct subject heading or plain paragraph would be clearer
 - forcing `###` wrappers around single short paragraphs that do not introduce a real subtopic
 - pulling in nearby PDFs, presentations, transcripts, screenshots, or other files that were not explicitly provided or approved for the current task
+- returning the lesson note only in chat when the user did not ask for chat-only output
 - omitting homework rules, submission conditions, penalties, or required comments
 - removing a whole block just because one tool name is noisy in the transcript
 - using the contents block as a dump for service sections, summaries, or editorial notes
