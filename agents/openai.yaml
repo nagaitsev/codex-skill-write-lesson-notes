@@ -1,4 +1,4 @@
 interface:
-  display_name: "Конспект занятия"
-  short_description: "Делает конспект по транскрибации"
-  default_prompt: "Используй $write-lesson-notes, чтобы превратить эту транскрибацию и материалы занятия в выверенный конспект в Markdown."
+  display_name: "Конспект и тест занятия"
+  short_description: "Делает конспект или тест по транскрибации"
+  default_prompt: "Используй $write-lesson-notes, чтобы по транскрибации и материалам занятия сделать конспект в Markdown или тест в TXT."

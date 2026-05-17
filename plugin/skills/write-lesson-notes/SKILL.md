@@ -1,20 +1,27 @@
 ---
 name: write-lesson-notes
-description: Create an editorial-style lesson note in Markdown from a lesson transcript and supplemental materials such as slides, links, handouts, screenshots, or PDFs. Use when Codex receives a request like "Напиши конспект занятия" and the user expects a polished thematic note with a contents block, practical section titles, short meaningful subheadings, integrated definitions and workflows, optional images from the lesson materials or the web, and a final list of links and services mentioned in the lesson. Verify externally checkable terms, product names, hotkeys, and URLs before finalizing the note, preferring official sources.
+description: Create an editorial-style lesson note in Markdown or a lesson test in TXT from a lesson transcript and supplemental materials such as slides, links, handouts, screenshots, or PDFs. Use when Codex receives a request like "Напиши конспект занятия", "Сгенери содержание", or "Сделай тест". For notes, produce a polished thematic note with a contents block, practical section titles, short meaningful subheadings, integrated definitions and workflows, optional images from the lesson materials or the web, and a final list of links and services mentioned in the lesson. For tests, produce 10 questions in the exact teaching order of the lesson with controlled single-answer and limited multi-answer questions. Verify externally checkable terms, product names, hotkeys, and URLs before finalizing the note or test, preferring official sources.
 ---
 
 # Write Lesson Notes
 
 ## Overview
 
-Turn a transcript and lesson materials into a readable editorial note, not into a dry checklist.
-Preserve the lesson's meaning, terminology, and structure, but present them as a clean study text in simple language without direct speech, teacher references, or quote formatting.
+Turn a transcript and lesson materials into either:
+
+- a readable editorial lesson note
+- or a structured lesson test
+
+Preserve the lesson's meaning, terminology, structure, and real teaching order.
+Present the result as clean study material without direct speech, teacher references, or quote formatting.
 
 ## Mandatory Requirement
 
-Always produce the lesson note in Markdown format.
-By default, create the result as a `.md` file instead of only printing the note in chat.
-Treat the written Markdown file as the primary final artifact.
+For `Напиши конспект занятия`, always produce the lesson note in Markdown format.
+For `Сделай тест`, always produce the test as a `.txt` file.
+By default, create the result as a file instead of only printing it in chat.
+Treat the written file as the primary final artifact.
+When the environment supports Canvas and the user asked `Сделай тест`, prepare the test in Canvas as well, but the `.txt` file remains mandatory.
 Always present the content as direct study material, not as a retelling of what happened in class.
 
 ## Core Principle
@@ -45,12 +52,17 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 4. Build the note around those themes in the clearest editorial order while preserving the factual teaching order of the lesson.
 5. When several structurings are possible, prefer the one that tracks the teacher's progression through tools, stages, examples, and decisions over a cleaner taxonomic regrouping by topic.
 4. Draft from the lesson content first.
-5. Write the note into a `.md` file by default unless the user explicitly asked for chat-only output.
-6. If there are editorial notes, verification notes, or a short summary of corrections, place them before `# Содержание`.
-7. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
-8. Exclude service blocks and non-lesson blocks from the contents.
-9. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
-10. Correct factual surface details if needed, while preserving the lesson's substance.
+5. Choose the output mode from the user's command:
+   - `Напиши конспект занятия` -> note
+   - `Сделай тест` -> test
+   - `Сделай содержание` or `Сгенери содержание` -> contents update
+6. Write the note into a `.md` file by default unless the user explicitly asked for chat-only output.
+7. Write the test into a `.txt` file by default unless the user explicitly asked for chat-only output.
+8. If there are editorial notes, verification notes, or a short summary of corrections for a lesson note, place them before `# Содержание`.
+9. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
+10. Exclude service blocks and non-lesson blocks from the contents.
+11. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
+12. Correct factual surface details if needed, while preserving the lesson's substance.
 
 ## Input Scope Rule
 
@@ -83,6 +95,39 @@ Contents generation restrictions:
 - Do not include file links, local paths, or URLs.
 - Use only the visible heading text after `# `.
 
+## Explicit Command: Make Test
+
+If the user explicitly asks `Сделай тест`:
+
+1. Build the test only from the transcript and user-approved materials for the current task.
+2. Reconstruct the lesson sequence first, then keep the question sequence in that same order.
+3. Create exactly 10 questions.
+4. Cover the lesson progressively rather than clustering almost all questions around one fragment.
+5. Use only two question types:
+   - single-answer question with one correct option
+   - multi-answer question with 2 or more correct options
+6. Use no more than 30% multi-answer questions. For a 10-question test, that means no more than 3 multi-answer questions.
+7. For every multi-answer question, explicitly state the number of correct options on a separate line immediately after the question, for example: `Выберите 2 верных варианта.`
+8. Write the final test into a `.txt` file by default.
+9. If Canvas is available in the current environment, prepare the test in Canvas as well, but do not skip the `.txt` file.
+10. Verify terminology, product names, hotkeys, and externally checkable details before finalizing the test.
+
+Test formatting rules:
+
+- Number every question.
+- Keep one empty line between the question line and the answer block.
+- For multi-answer questions, place the `Выберите N верных варианта.` line after the question and before the answer list.
+- Prefix correct answers with `+ `.
+- Prefix incorrect answers with `- `.
+- Put every answer option on its own line.
+- Use 4 or more answer options for every question whenever possible.
+- Single-answer questions may use 3 options only when a fourth option would be obviously weak.
+- Multi-answer questions must always have 4 or more options.
+- Keep correct and incorrect options parallel in grammar, specificity, and approximate length so the answer cannot be guessed from wording size alone.
+- Do not use `все перечисленное`, `ни один из вариантов`, joke distractors, or structurally obvious trap answers.
+- Do not write ambiguous partial-credit multi-answer questions. A multi-answer question must be fully gradable as all-correct or not correct.
+- Keep the general direct-writing rules in force: no retelling of the lesson, no teacher references, no empty lead-ins.
+
 ## Structure Rules
 
 Use this default structure unless the user asks for another one:
@@ -113,8 +158,9 @@ Do not include service sections or editorial notes in the contents block.
 
 ## Writing Rules
 
-- Always produce the final note in Markdown format.
-- By default, save the final result as a `.md` file instead of returning only a chat response.
+- For lesson notes, always produce the final note in Markdown format.
+- For tests, always produce the final result as a `.txt` file.
+- By default, save the final result as a file instead of returning only a chat response.
 - Use `#` for major sections and `###` for local subsections.
 - Write in simple, clear language.
 - Remove direct speech, references to the teacher, and quote formatting.
@@ -191,6 +237,14 @@ Preserve homework, submission rules, criteria, penalties, required comments, and
 If the lesson is mostly practical, let the note become more cheat-sheet-like and less essay-like.
 If the lesson is more conceptual, keep more connective prose between ideas.
 
+For tests:
+
+- Keep the question order aligned with the lesson order.
+- Prefer questions that check practical distinctions, terminology, steps, limitations, and tool behavior actually taught in the lesson.
+- Do not invent facts, names, or hotkeys just to make a question harder.
+- Do not use external knowledge to replace what was actually taught, except for narrow verification of names, terms, links, and hotkeys.
+- Keep each question unambiguous and gradeable from the lesson content.
+
 ## Verification Rules
 
 Verify externally checkable details after drafting and before final output.
@@ -244,6 +298,12 @@ When transcript wording and supplemental materials differ:
 - Check whether meta-subheadings can be replaced by a direct heading or by starting the paragraph immediately.
 - Check whether every factual detail, screenshot, PDF, and supplemental artifact used in the note came only from user-provided or user-approved files.
 - Check whether the final result was written to a `.md` file unless the user explicitly requested chat-only output.
+- For tests, check whether the final result was written to a `.txt` file unless the user explicitly requested chat-only output.
+- For tests, check whether there are exactly 10 questions.
+- For tests, check whether the question order follows the lesson order.
+- For tests, check whether there are no more than 3 multi-answer questions.
+- For tests, check whether every multi-answer question states the number of correct options.
+- For tests, check whether correct and incorrect options are balanced in length and grammatical shape.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
@@ -307,10 +367,17 @@ Avoid these failure modes:
 - forcing `###` wrappers around single short paragraphs that do not introduce a real subtopic
 - pulling in nearby PDFs, presentations, transcripts, screenshots, or other files that were not explicitly provided or approved for the current task
 - returning the lesson note only in chat when the user did not ask for chat-only output
+- returning the test only in chat when the user did not ask for chat-only output
+- creating fewer or more than 10 test questions
+- putting test questions in a different order than the lesson sequence
+- using more than 3 multi-answer questions in a 10-question test
+- omitting the `Выберите N верных варианта.` line for a multi-answer question
+- making correct answers obviously longer, more specific, or grammatically different than distractors
 - omitting homework rules, submission conditions, penalties, or required comments
 - removing a whole block just because one tool name is noisy in the transcript
 - using the contents block as a dump for service sections, summaries, or editorial notes
 
 ## Reference File
 
-Use [references/editorial-note-template.md](references/editorial-note-template.md) as the default output skeleton and checklist.
+Use [references/editorial-note-template.md](references/editorial-note-template.md) as the default lesson-note skeleton and checklist.
+Use [references/lesson-test-template.txt](references/lesson-test-template.txt) as the default lesson-test skeleton and checklist.
