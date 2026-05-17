@@ -18,9 +18,12 @@ try {
     $statePath = Join-Path $stateDir "update-state.json"
     $repoApi = "https://api.github.com/repos/nagaitsev/codex-skill-write-lesson-notes/commits/main"
     $rawSyncUrl = "https://raw.githubusercontent.com/nagaitsev/codex-skill-write-lesson-notes/main/plugin/scripts/sync-plugin-bundle.ps1"
-    $headers = @{
+    $apiHeaders = @{
         "User-Agent" = "write-lesson-notes-plugin"
         "Accept" = "application/vnd.github+json"
+    }
+    $rawHeaders = @{
+        "User-Agent" = "write-lesson-notes-plugin"
     }
 
     $now = [DateTime]::UtcNow
@@ -42,7 +45,7 @@ try {
         }
     }
 
-    $commitInfo = Invoke-RestMethod -Uri $repoApi -Headers $headers
+    $commitInfo = Invoke-RestMethod -Uri $repoApi -Headers $apiHeaders
     $latestSha = $commitInfo.sha
 
     if ($state -and $state.lastCommitSha -eq $latestSha) {
@@ -56,7 +59,7 @@ try {
     }
 
     $tempScript = Join-Path ([System.IO.Path]::GetTempPath()) ("sync-plugin-bundle-" + [guid]::NewGuid().ToString("N") + ".ps1")
-    Invoke-WebRequest -Uri $rawSyncUrl -Headers $headers -OutFile $tempScript
+    Invoke-WebRequest -Uri $rawSyncUrl -Headers $rawHeaders -OutFile $tempScript
 
     & powershell -ExecutionPolicy Bypass -File $tempScript -PluginRoot $pluginRoot -LatestSha $latestSha -Quiet:$Quiet
     $exitCode = $LASTEXITCODE

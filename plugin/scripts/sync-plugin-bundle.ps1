@@ -19,13 +19,16 @@ try {
     $statePath = Join-Path $stateDir "update-state.json"
     $globalSkillRoot = Join-Path $HOME ".codex\\skills\\write-lesson-notes"
     $rawBase = "https://raw.githubusercontent.com/nagaitsev/codex-skill-write-lesson-notes/main/plugin"
-    $headers = @{
+    $apiHeaders = @{
         "User-Agent" = "write-lesson-notes-plugin"
         "Accept" = "application/vnd.github+json"
     }
+    $rawHeaders = @{
+        "User-Agent" = "write-lesson-notes-plugin"
+    }
 
     if (-not $LatestSha) {
-        $commitInfo = Invoke-RestMethod -Uri "https://api.github.com/repos/nagaitsev/codex-skill-write-lesson-notes/commits/main" -Headers $headers
+        $commitInfo = Invoke-RestMethod -Uri "https://api.github.com/repos/nagaitsev/codex-skill-write-lesson-notes/commits/main" -Headers $apiHeaders
         $LatestSha = $commitInfo.sha
     }
 
@@ -61,7 +64,7 @@ try {
         $normalizedRelative = $relativePath -replace "\\", "/"
         $downloadUrl = "$rawBase/$normalizedRelative"
         $tmpFile = Join-Path $tempDir ([IO.Path]::GetFileName($normalizedRelative))
-        Invoke-WebRequest -Uri $downloadUrl -Headers $headers -OutFile $tmpFile
+        Invoke-WebRequest -Uri $downloadUrl -Headers $rawHeaders -OutFile $tmpFile
 
         $destination = Join-Path $PluginRoot ($relativePath -replace "/", "\")
         $destinationDir = Split-Path -Parent $destination
