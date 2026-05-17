@@ -1,7 +1,7 @@
 {
   "name": "write-lesson-notes",
   "version": "0.1.0",
-  "description": "Lesson note and test plugin that bundles the write-lesson-notes skill and auto-syncs it from GitHub.",
+  "description": "Lesson note, test, and timecodes plugin that bundles the write-lesson-notes skill and auto-syncs it from GitHub.",
   "author": {
     "name": "nagaitsev",
     "email": "noreply@example.com",
@@ -14,14 +14,16 @@
     "lesson-notes",
     "markdown",
     "tests",
+    "timecodes",
+    "subtitles",
     "skill-sync"
   ],
   "skills": "./skills/",
   "hooks": "./hooks.json",
   "interface": {
     "displayName": "Write Lesson Notes",
-    "shortDescription": "Skill plugin for lesson notes and tests",
-    "longDescription": "Bundles the write-lesson-notes skill for structured lesson notes and tests, then updates the local plugin bundle from the GitHub repository on session start.",
+    "shortDescription": "Skill plugin for lesson notes, tests, and timecodes",
+    "longDescription": "Bundles the write-lesson-notes skill for structured lesson notes, tests, and subtitle-based timecodes, then updates the local plugin bundle from the GitHub repository on session start.",
     "developerName": "nagaitsev",
     "category": "Productivity",
     "capabilities": [
@@ -34,7 +36,8 @@
     "defaultPrompt": [
       "Напиши конспект занятия",
       "Сделай тест",
-      "Сделай содержание"
+      "Сделай содержание",
+      "Сделай таймкоды"
     ],
     "brandColor": "#2563EB",
     "screenshots": []

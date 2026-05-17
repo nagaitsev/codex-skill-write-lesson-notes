@@ -39,7 +39,9 @@ try {
         "scripts/sync-plugin-bundle.ps1",
         "skills/write-lesson-notes/SKILL.md",
         "skills/write-lesson-notes/agents/openai.yaml",
-        "skills/write-lesson-notes/references/editorial-note-template.md"
+        "skills/write-lesson-notes/references/editorial-note-template.md",
+        "skills/write-lesson-notes/references/lesson-test-template.txt",
+        "skills/write-lesson-notes/references/lesson-timecodes-template.md"
     )
 
     $globalSkillFiles = @(
@@ -54,6 +56,14 @@ try {
         @{
             PluginRelative = "skills/write-lesson-notes/references/editorial-note-template.md"
             SkillRelative = "references/editorial-note-template.md"
+        },
+        @{
+            PluginRelative = "skills/write-lesson-notes/references/lesson-test-template.txt"
+            SkillRelative = "references/lesson-test-template.txt"
+        },
+        @{
+            PluginRelative = "skills/write-lesson-notes/references/lesson-timecodes-template.md"
+            SkillRelative = "references/lesson-timecodes-template.md"
         }
     )
 

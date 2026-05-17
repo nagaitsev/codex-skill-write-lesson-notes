@@ -1,6 +1,6 @@
 ---
 name: write-lesson-notes
-description: Create an editorial-style lesson note in Markdown or a lesson test in TXT from a lesson transcript and supplemental materials such as slides, links, handouts, screenshots, or PDFs. Use when Codex receives a request like "Напиши конспект занятия", "Сгенери содержание", or "Сделай тест". For notes, produce a polished thematic note with a contents block, practical section titles, short meaningful subheadings, integrated definitions and workflows, optional images from the lesson materials or the web, and a final list of links and services mentioned in the lesson. For tests, produce 10 questions in the exact teaching order of the lesson with controlled single-answer and limited multi-answer questions. Verify externally checkable terms, product names, hotkeys, and URLs before finalizing the note or test, preferring official sources.
+description: Create an editorial-style lesson note in Markdown, a lesson test in TXT, or YouTube-style timecodes in Markdown from a lesson transcript, subtitle file, and supplemental materials such as slides, links, handouts, screenshots, or PDFs. Use when Codex receives a request like "Напиши конспект занятия", "Сгенери содержание", "Сделай тест", or "Сделай таймкоды". For notes, produce a polished thematic note with a contents block, practical section titles, short meaningful subheadings, integrated definitions and workflows, optional images from the lesson materials or the web, and a final list of links and services mentioned in the lesson. For tests, produce 10 questions in the exact teaching order of the lesson with controlled single-answer and limited multi-answer questions. For timecodes, accept only real subtitle files with timing cues and turn them into a concise topic outline whose headings are YouTube-formatted timestamps. Verify externally checkable terms, product names, hotkeys, and URLs before finalizing the note, test, or timecodes, preferring official sources.
 ---
 
 # Write Lesson Notes
@@ -11,6 +11,7 @@ Turn a transcript and lesson materials into either:
 
 - a readable editorial lesson note
 - or a structured lesson test
+- or a timecoded topic outline built from subtitle files
 
 Preserve the lesson's meaning, terminology, structure, and real teaching order.
 Present the result as clean study material without direct speech, teacher references, or quote formatting.
@@ -19,6 +20,7 @@ Present the result as clean study material without direct speech, teacher refere
 
 For `Напиши конспект занятия`, always produce the lesson note in Markdown format.
 For `Сделай тест`, always produce the test as a `.txt` file.
+For `Сделай таймкоды`, always produce the timecoded outline as a `.md` file.
 By default, create the result as a file instead of only printing it in chat.
 Treat the written file as the primary final artifact.
 When the environment supports Canvas and the user asked `Сделай тест`, prepare the test in Canvas as well, but the `.txt` file remains mandatory.
@@ -55,14 +57,16 @@ Do not default to rigid report sections like `Ключевые идеи и оп�
 5. Choose the output mode from the user's command:
    - `Напиши конспект занятия` -> note
    - `Сделай тест` -> test
+   - `Сделай таймкоды` -> timecodes
    - `Сделай содержание` or `Сгенери содержание` -> contents update
 6. Write the note into a `.md` file by default unless the user explicitly asked for chat-only output.
 7. Write the test into a `.txt` file by default unless the user explicitly asked for chat-only output.
-8. If there are editorial notes, verification notes, or a short summary of corrections for a lesson note, place them before `# Содержание`.
-9. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
-10. Exclude service blocks and non-lesson blocks from the contents.
-11. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
-12. Correct factual surface details if needed, while preserving the lesson's substance.
+8. Write the timecoded outline into a `.md` file by default unless the user explicitly asked for chat-only output.
+9. If there are editorial notes, verification notes, or a short summary of corrections for a lesson note, place them before `# Содержание`.
+10. Generate `# Содержание` from the final set of substantive level-1 `#` headings only.
+11. Exclude service blocks and non-lesson blocks from the contents.
+12. Verify externally checkable details such as terms, product names, versions, hotkeys, and URLs.
+13. Correct factual surface details if needed, while preserving the lesson's substance.
 
 ## Input Scope Rule
 
@@ -130,6 +134,25 @@ Test formatting rules:
 - Keep the general direct-writing rules in force: no retelling of the lesson, no teacher references, no empty lead-ins.
 - Write questions as direct knowledge checks about the subject, not as questions about what the teacher said or how the lesson was phrased.
 
+## Explicit Command: Make Timecodes
+
+If the user explicitly asks `Сделай таймкоды`:
+
+1. Accept only a real subtitle file or a file that actually contains recurring subtitle timing cues.
+2. Do not trust the filename or extension alone. Inspect the content and confirm that it contains repeated subtitle time markers such as `00:01:23,456 --> 00:01:27,000`, `00:01:23.456 --> 00:01:27.000`, `WEBVTT` cue blocks, or another reliable subtitle timing structure.
+3. If the provided file is plain text without subtitle timing cues, refuse this mode and explicitly ask for a subtitle file instead. Do not fabricate timecodes from a plain transcript.
+4. If the subtitle file is too malformed to recover reliable topic start times, refuse and ask for a cleaner subtitle export instead of guessing.
+5. Reconstruct the video flow from the subtitle stream and split it into meaningful thematic blocks in the real order of the video.
+6. Produce a compact study outline rather than a full lesson note. Each major block must start with one YouTube-style timestamp heading that marks the beginning of that topic.
+7. Format each top-level heading as `# <таймкод> <тема>`, for example `# 0:00 Введение` or `# 1:12:43 Финальный экспорт`.
+8. Use only the topic start time for each heading. Do not add decorative intermediate timecodes that are not supported by the subtitles.
+9. Format timecodes as `M:SS` under one hour and `H:MM:SS` at one hour or longer.
+10. Normalize the very first heading to `0:00` when the opening subtitle cue starts a few seconds later but clearly belongs to the start of the video.
+11. Under each heading, keep either one short paragraph or 1 to 3 short bullets that capture the practical substance of that segment.
+12. Prefer fewer meaningful topic blocks over line-by-line timestamping. Create a new heading only when the video clearly switches to a new topic, tool, step, mode, or task.
+13. Write the final timecoded outline into a `.md` file by default.
+14. Verify terminology, product names, hotkeys, and externally checkable names before finalizing the timecodes.
+
 ## Structure Rules
 
 Use this default structure unless the user asks for another one:
@@ -163,6 +186,7 @@ Do not include service sections or editorial notes in the contents block.
 - For lesson notes, always produce the final note in Markdown format.
 - For tests, always produce the final result as a `.txt` file.
 - By default, save the final result as a file instead of returning only a chat response.
+- For `Сделай таймкоды`, verify that the input is real subtitles with timing cues before drafting any output.
 - Use `#` for major sections and `###` for local subsections.
 - Write in simple, clear language.
 - Remove direct speech, references to the teacher, and quote formatting.
@@ -253,6 +277,17 @@ For tests:
 - Keep each question unambiguous and gradeable from the lesson content.
 - Phrase questions impersonally and factually. Avoid constructions like `преподаватель рекомендует`, `в занятии описывается`, or `по материалу занятия`, unless the fact cannot be asked in a direct subject form.
 
+For timecodes:
+
+- Build them only from real subtitles with timing cues, not from plain transcript text.
+- Refuse the task if the provided file does not contain subtitle timing structure.
+- Keep the topic order aligned with the real subtitle order.
+- Prefer topic-level blocks over overly granular timestamp slicing.
+- Use the subtitle-derived topic start as the heading time.
+- Use YouTube-style heading format: `# <таймкод> <тема>`.
+- Keep each block compact and practical rather than rewriting the full lesson note.
+- Do not invent timestamps for topics that cannot be reliably anchored in the subtitle stream.
+
 ## Verification Rules
 
 Verify externally checkable details after drafting and before final output.
@@ -315,6 +350,11 @@ When transcript wording and supplemental materials differ:
 - For tests, check whether organizational questions were excluded.
 - For tests, check whether the selected questions cover substantive material rather than course housekeeping.
 - For tests, check whether the wording is direct and impersonal rather than tied to the teacher or lesson narration.
+- For timecodes, check whether the input file was a real subtitle file with timing cues rather than plain text.
+- For timecodes, check whether every top-level heading begins with a YouTube-formatted timestamp.
+- For timecodes, check whether the heading order follows the subtitle order.
+- For timecodes, check whether timestamps mark real topic starts instead of guessed decorative splits.
+- For timecodes, check whether the result was written to a `.md` file unless the user explicitly requested chat-only output.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
@@ -325,7 +365,7 @@ This review is mandatory.
 
 Validation procedure:
 
-1. Compare the finished note against every rule and restriction in `SKILL.md` and the reference template.
+1. Compare the finished output against every rule and restriction in `SKILL.md` and the relevant reference template.
 2. If any single rule is violated, revise the note until the violation is removed.
 3. Run a drying pass: remove words, phrases, repeated explanations, and second explanatory sentences that can be deleted without losing meaning or practical value.
 4. Preserve necessary details, examples, steps, warnings, and operational conditions; do not shorten by deleting meaningful lesson content.
