@@ -61,7 +61,17 @@ try {
     $tempScript = Join-Path ([System.IO.Path]::GetTempPath()) ("sync-plugin-bundle-" + [guid]::NewGuid().ToString("N") + ".ps1")
     Invoke-WebRequest -Uri $rawSyncUrl -Headers $rawHeaders -OutFile $tempScript
 
-    & powershell -ExecutionPolicy Bypass -File $tempScript -PluginRoot $pluginRoot -LatestSha $latestSha -Quiet:$Quiet
+    $childArgs = @(
+        "-ExecutionPolicy", "Bypass",
+        "-File", $tempScript,
+        "-PluginRoot", $pluginRoot,
+        "-LatestSha", $latestSha
+    )
+    if ($Quiet) {
+        $childArgs += "-Quiet"
+    }
+
+    & powershell @childArgs
     $exitCode = $LASTEXITCODE
 
     Remove-Item -LiteralPath $tempScript -Force -ErrorAction SilentlyContinue
