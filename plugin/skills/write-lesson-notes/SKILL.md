@@ -111,6 +111,7 @@ If the user explicitly asks `Сделай тест`:
 8. Write the final test into a `.txt` file by default.
 9. If Canvas is available in the current environment, prepare the test in Canvas as well, but do not skip the `.txt` file.
 10. Verify terminology, product names, hotkeys, and externally checkable details before finalizing the test.
+11. Exclude organizational questions from the test.
 
 Test formatting rules:
 
@@ -127,6 +128,7 @@ Test formatting rules:
 - Do not use `все перечисленное`, `ни один из вариантов`, joke distractors, or structurally obvious trap answers.
 - Do not write ambiguous partial-credit multi-answer questions. A multi-answer question must be fully gradable as all-correct or not correct.
 - Keep the general direct-writing rules in force: no retelling of the lesson, no teacher references, no empty lead-ins.
+- Write questions as direct knowledge checks about the subject, not as questions about what the teacher said or how the lesson was phrased.
 
 ## Structure Rules
 
@@ -240,10 +242,16 @@ If the lesson is more conceptual, keep more connective prose between ideas.
 For tests:
 
 - Keep the question order aligned with the lesson order.
+- Keep the question order aligned with the order of the selected substantive lesson topics.
+- Exclude organizational material from the test: platform navigation, chats, general course housekeeping, and other non-substantive logistics should not become questions.
+- When selecting 10 questions, prioritize substantive blocks such as terms, models, tariffs, tools, workflows, limitations, settings, comparisons, and practical rules.
+- Do not spend question slots on introductory course logistics if stronger substantive material appears later in the lesson.
+- If a weak question is replaced, replace it with the next stronger substantive topic from later in the lesson while preserving the order among the selected topics.
 - Prefer questions that check practical distinctions, terminology, steps, limitations, and tool behavior actually taught in the lesson.
 - Do not invent facts, names, or hotkeys just to make a question harder.
 - Do not use external knowledge to replace what was actually taught, except for narrow verification of names, terms, links, and hotkeys.
 - Keep each question unambiguous and gradeable from the lesson content.
+- Phrase questions impersonally and factually. Avoid constructions like `преподаватель рекомендует`, `в занятии описывается`, or `по материалу занятия`, unless the fact cannot be asked in a direct subject form.
 
 ## Verification Rules
 
@@ -304,6 +312,9 @@ When transcript wording and supplemental materials differ:
 - For tests, check whether there are no more than 3 multi-answer questions.
 - For tests, check whether every multi-answer question states the number of correct options.
 - For tests, check whether correct and incorrect options are balanced in length and grammatical shape.
+- For tests, check whether organizational questions were excluded.
+- For tests, check whether the selected questions cover substantive material rather than course housekeeping.
+- For tests, check whether the wording is direct and impersonal rather than tied to the teacher or lesson narration.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
 
@@ -373,6 +384,9 @@ Avoid these failure modes:
 - using more than 3 multi-answer questions in a 10-question test
 - omitting the `Выберите N верных варианта.` line for a multi-answer question
 - making correct answers obviously longer, more specific, or grammatically different than distractors
+- using organizational material as test questions
+- asking about what the teacher recommended or said when the same content can be tested as a direct subject fact
+- spending multiple early questions on weak course logistics while stronger substantive material appears later
 - omitting homework rules, submission conditions, penalties, or required comments
 - removing a whole block just because one tool name is noisy in the transcript
 - using the contents block as a dump for service sections, summaries, or editorial notes
