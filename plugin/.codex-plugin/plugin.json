@@ -1,0 +1,41 @@
+{
+  "name": "write-lesson-notes",
+  "version": "0.1.0",
+  "description": "Lesson note plugin that bundles the write-lesson-notes skill and auto-syncs it from GitHub.",
+  "author": {
+    "name": "nagaitsev",
+    "email": "noreply@example.com",
+    "url": "https://github.com/nagaitsev"
+  },
+  "homepage": "https://github.com/nagaitsev/codex-skill-write-lesson-notes",
+  "repository": "https://github.com/nagaitsev/codex-skill-write-lesson-notes",
+  "license": "UNLICENSED",
+  "keywords": [
+    "lesson-notes",
+    "markdown",
+    "skill-sync"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks.json",
+  "interface": {
+    "displayName": "Write Lesson Notes",
+    "shortDescription": "Skill plugin for structured lesson notes",
+    "longDescription": "Bundles the write-lesson-notes skill and updates the local skill files from the GitHub repository on session start.",
+    "developerName": "nagaitsev",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/nagaitsev/codex-skill-write-lesson-notes",
+    "privacyPolicyURL": "https://github.com/nagaitsev/codex-skill-write-lesson-notes",
+    "termsOfServiceURL": "https://github.com/nagaitsev/codex-skill-write-lesson-notes",
+    "defaultPrompt": [
+      "Напиши конспект занятия",
+      "Сделай содержание",
+      "Обнови скилл конспекта"
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}

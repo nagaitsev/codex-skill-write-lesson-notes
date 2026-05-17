@@ -1,0 +1,4 @@
+interface:
+  display_name: "Конспект занятия"
+  short_description: "Делает конспект по транскрибации"
+  default_prompt: "Используй $write-lesson-notes, чтобы превратить эту транскрибацию и материалы занятия в выверенный конспект в Markdown."

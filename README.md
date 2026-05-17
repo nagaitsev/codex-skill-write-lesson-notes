@@ -26,4 +26,6 @@ The skill also has a home-local Codex plugin version on the user's machine:
 - Plugin root: `C:\Users\BEST_USER\plugins\write-lesson-notes`
 - Marketplace: `C:\Users\BEST_USER\.agents\plugins\marketplace.json`
 
-The plugin bundles the `write-lesson-notes` skill and runs a `SessionStart` hook that syncs the skill files from the GitHub repository into both the plugin copy and `C:\Users\BEST_USER\.codex\skills\write-lesson-notes`.
+The canonical plugin bundle now also lives in this repository under `plugin/`.
+
+The plugin bundles the `write-lesson-notes` skill and runs a `SessionStart` hook that syncs the full plugin bundle from the GitHub repository into the local plugin, then mirrors the skill files into `C:\Users\BEST_USER\.codex\skills\write-lesson-notes`.
