@@ -12,6 +12,27 @@ function Write-Status {
     }
 }
 
+function Parse-UtcTimestamp {
+    param([string]$Value)
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return $null
+    }
+
+    $styles = [System.Globalization.DateTimeStyles]::AssumeUniversal -bor [System.Globalization.DateTimeStyles]::AdjustToUniversal
+    $parsed = [System.DateTimeOffset]::MinValue
+
+    if ([System.DateTimeOffset]::TryParse($Value, [System.Globalization.CultureInfo]::InvariantCulture, $styles, [ref]$parsed)) {
+        return $parsed.UtcDateTime
+    }
+
+    if ([System.DateTimeOffset]::TryParse($Value, [System.Globalization.CultureInfo]::CurrentCulture, $styles, [ref]$parsed)) {
+        return $parsed.UtcDateTime
+    }
+
+    return $null
+}
+
 try {
     $pluginRoot = Split-Path -Parent $PSScriptRoot
     $stateDir = Join-Path $pluginRoot "state"
@@ -38,8 +59,8 @@ try {
     }
 
     if ($state -and $state.lastCheckUtc) {
-        $lastCheck = [DateTime]::Parse($state.lastCheckUtc).ToUniversalTime()
-        if (($now - $lastCheck).TotalHours -lt $MinHoursBetweenChecks) {
+        $lastCheck = Parse-UtcTimestamp -Value ([string]$state.lastCheckUtc)
+        if ($lastCheck -and ($now - $lastCheck).TotalHours -lt $MinHoursBetweenChecks) {
             Write-Status "write-lesson-notes: skipped bundle check"
             exit 0
         }
