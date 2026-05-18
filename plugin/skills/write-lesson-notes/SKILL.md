@@ -116,6 +116,9 @@ If the user explicitly asks `Сделай тест`:
 9. If Canvas is available in the current environment, prepare the test in Canvas as well, but do not skip the `.txt` file.
 10. Verify terminology, product names, hotkeys, and externally checkable details before finalizing the test.
 11. Exclude organizational questions from the test.
+12. Write question formulations compactly so they are easy to scan and easy to read.
+13. Write answer options compactly in the same general style, without verbose framing.
+14. After drafting the test, run a dedicated answer-balance pass and rewrite options until correct answers do not systematically stand out by length, density, or grammatical form.
 
 Test formatting rules:
 
@@ -131,7 +134,10 @@ Test formatting rules:
 - Use 4 or more answer options for every question whenever possible.
 - Single-answer questions may use 3 options only when a fourth option would be obviously weak.
 - Multi-answer questions must always have 4 or more options.
+- Keep question formulations compact and easy to read.
+- Keep answer options compact and easy to read.
 - Keep correct and incorrect options parallel in grammar, specificity, and approximate length so the answer cannot be guessed from wording size alone.
+- If one option is visibly longer, denser, or more formal than the others in the same question, rewrite the set until no option stands out by shape alone.
 - Do not use `все перечисленное`, `ни один из вариантов`, joke distractors, or structurally obvious trap answers.
 - Do not write ambiguous partial-credit multi-answer questions. A multi-answer question must be fully gradable as all-correct or not correct.
 - Keep the general direct-writing rules in force: no retelling of the lesson, no teacher references, no empty lead-ins.
@@ -279,6 +285,8 @@ For tests:
 - Do not use external knowledge to replace what was actually taught, except for narrow verification of names, terms, links, and hotkeys.
 - Keep each question unambiguous and gradeable from the lesson content.
 - Phrase questions impersonally and factually. Avoid constructions like `преподаватель рекомендует`, `в занятии описывается`, or `по материалу занятия`, unless the fact cannot be asked in a direct subject form.
+- Prefer shorter question wording when the same meaning remains clear.
+- Prefer shorter answer wording when the same meaning remains clear.
 
 For timecodes:
 
@@ -353,7 +361,10 @@ When transcript wording and supplemental materials differ:
 - For tests, check whether every multi-answer question states the number of correct options on the second line in the form `Выберите N правильных вариантов.`
 - For tests, check whether question lines are plain numbered lines rather than Markdown headings.
 - For tests, check whether answer options use only `+ ` and `- ` markers.
+- For tests, check whether question formulations are compact and easy to scan.
+- For tests, check whether answer formulations are compact and easy to scan.
 - For tests, check whether correct and incorrect options are balanced in length and grammatical shape.
+- For tests, check whether no question still has a correct option that visibly stands out by length or density alone.
 - For tests, check whether organizational questions were excluded.
 - For tests, check whether the selected questions cover substantive material rather than course housekeeping.
 - For tests, check whether the wording is direct and impersonal rather than tied to the teacher or lesson narration.
@@ -432,6 +443,8 @@ Avoid these failure modes:
 - omitting the `Выберите N правильных вариантов.` line for a multi-answer question
 - writing the question as a Markdown heading such as `## 1. ...` instead of a plain numbered line
 - using checkbox, radio, bullet, or emoji markers instead of `+ ` and `- `
+- writing needlessly long question formulations when a shorter direct version would preserve the same meaning
+- writing answer options that are longer and denser than needed
 - making correct answers obviously longer, more specific, or grammatically different than distractors
 - using organizational material as test questions
 - asking about what the teacher recommended or said when the same content can be tested as a direct subject fact
