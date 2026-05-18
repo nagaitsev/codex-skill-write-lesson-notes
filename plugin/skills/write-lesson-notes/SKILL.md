@@ -105,8 +105,8 @@ If the user explicitly asks `Сделай тест`:
 
 1. Build the test only from the transcript and user-approved materials for the current task.
 2. Reconstruct the lesson sequence first, then keep the question sequence in that same order.
-3. Create exactly 10 questions.
-4. Cover the lesson progressively rather than clustering almost all questions around one fragment.
+3. If the user did not explicitly request another number, create exactly 10 questions by default.
+4. By default, make those 10 questions cover the whole lesson progressively rather than clustering almost all questions around one fragment.
 5. Use only two question types:
    - single-answer question with one correct option
    - multi-answer question with 2 or more correct options
@@ -343,7 +343,9 @@ When transcript wording and supplemental materials differ:
 - Check whether the final result was written to a `.md` file unless the user explicitly requested chat-only output.
 - For tests, check whether the final result was written to a `.txt` file unless the user explicitly requested chat-only output.
 - For tests, check whether there are exactly 10 questions.
+- For tests, check whether 10 questions were used by default when the user did not request another number.
 - For tests, check whether the question order follows the lesson order.
+- For tests, check whether the questions cover the whole lesson rather than only one narrow fragment.
 - For tests, check whether there are no more than 3 multi-answer questions.
 - For tests, check whether every multi-answer question states the number of correct options.
 - For tests, check whether correct and incorrect options are balanced in length and grammatical shape.
