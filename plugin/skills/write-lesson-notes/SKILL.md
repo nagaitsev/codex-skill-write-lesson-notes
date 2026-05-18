@@ -283,6 +283,9 @@ For tests:
 - Prefer questions that check practical distinctions, terminology, steps, limitations, and tool behavior actually taught in the lesson.
 - Do not invent facts, names, or hotkeys just to make a question harder.
 - Do not use external knowledge to replace what was actually taught, except for narrow verification of names, terms, links, and hotkeys.
+- Build each question strictly from what was explicitly said or shown in the lesson materials for this run.
+- Do not merge distant fragments from different parts of the lesson into one synthesized question if that combined wording was not actually taught as one point.
+- You may rephrase for clarity and compactness, but do not add your own meaning, inference, or editorial synthesis to the tested fact.
 - Keep each question unambiguous and gradeable from the lesson content.
 - Phrase questions impersonally and factually. Avoid constructions like `преподаватель рекомендует`, `в занятии описывается`, or `по материалу занятия`, unless the fact cannot be asked in a direct subject form.
 - Prefer shorter question wording when the same meaning remains clear.
@@ -367,6 +370,9 @@ When transcript wording and supplemental materials differ:
 - For tests, check whether no question still has a correct option that visibly stands out by length or density alone.
 - For tests, check whether organizational questions were excluded.
 - For tests, check whether the selected questions cover substantive material rather than course housekeeping.
+- For tests, check whether every question is grounded in a point explicitly stated or shown in the lesson materials.
+- For tests, check whether no question was built by merging distant lesson fragments into a new synthesized claim that was not actually taught as one point.
+- For tests, check whether rephrasing preserved the original meaning without adding new meaning, inference, or editorial interpretation.
 - For tests, check whether the wording is direct and impersonal rather than tied to the teacher or lesson narration.
 - For timecodes, check whether the input file was a real subtitle file with timing cues rather than plain text.
 - For timecodes, check whether every top-level heading begins with a YouTube-formatted timestamp.
@@ -446,6 +452,8 @@ Avoid these failure modes:
 - writing needlessly long question formulations when a shorter direct version would preserve the same meaning
 - writing answer options that are longer and denser than needed
 - making correct answers obviously longer, more specific, or grammatically different than distractors
+- combining separate lesson fragments into a new question meaning that was not explicitly taught
+- inferring or inventing an intermediate conclusion and then testing that invented conclusion as if it had been said
 - using organizational material as test questions
 - asking about what the teacher recommended or said when the same content can be tested as a direct subject fact
 - spending multiple early questions on weak course logistics while stronger substantive material appears later
