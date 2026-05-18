@@ -111,7 +111,7 @@ If the user explicitly asks `Сделай тест`:
    - single-answer question with one correct option
    - multi-answer question with 2 or more correct options
 6. Use no more than 30% multi-answer questions. For a 10-question test, that means no more than 3 multi-answer questions.
-7. For every multi-answer question, explicitly state the number of correct options on a separate line immediately after the question, for example: `Выберите 2 верных варианта.`
+7. For every multi-answer question, explicitly state the number of correct options on a separate line immediately after the question, for example: `Выберите 2 правильных вариантов.`
 8. Write the final test into a `.txt` file by default.
 9. If Canvas is available in the current environment, prepare the test in Canvas as well, but do not skip the `.txt` file.
 10. Verify terminology, product names, hotkeys, and externally checkable details before finalizing the test.
@@ -120,10 +120,13 @@ If the user explicitly asks `Сделай тест`:
 Test formatting rules:
 
 - Number every question.
+- Use plain numbered lines in the form `1. <вопрос>`, `2. <вопрос>` and so on.
+- Do not wrap question lines in headings such as `## 1.` or `### 1.`.
 - Keep one empty line between the question line and the answer block.
-- For multi-answer questions, place the `Выберите N верных варианта.` line after the question and before the answer list.
+- For multi-answer questions, place the line `Выберите N правильных вариантов.` as the second line, immediately after the question and before the answer list.
 - Prefix correct answers with `+ `.
 - Prefix incorrect answers with `- `.
+- Use only `+ ` and `- ` markers for answer options. Do not use bullets, circles, checkboxes, emoji, or radio-button symbols such as `*`, `•`, `◯`, `☐`, `☑️`, or `🔘`.
 - Put every answer option on its own line.
 - Use 4 or more answer options for every question whenever possible.
 - Single-answer questions may use 3 options only when a fourth option would be obviously weak.
@@ -347,7 +350,9 @@ When transcript wording and supplemental materials differ:
 - For tests, check whether the question order follows the lesson order.
 - For tests, check whether the questions cover the whole lesson rather than only one narrow fragment.
 - For tests, check whether there are no more than 3 multi-answer questions.
-- For tests, check whether every multi-answer question states the number of correct options.
+- For tests, check whether every multi-answer question states the number of correct options on the second line in the form `Выберите N правильных вариантов.`
+- For tests, check whether question lines are plain numbered lines rather than Markdown headings.
+- For tests, check whether answer options use only `+ ` and `- ` markers.
 - For tests, check whether correct and incorrect options are balanced in length and grammatical shape.
 - For tests, check whether organizational questions were excluded.
 - For tests, check whether the selected questions cover substantive material rather than course housekeeping.
@@ -424,7 +429,9 @@ Avoid these failure modes:
 - creating fewer or more than 10 test questions
 - putting test questions in a different order than the lesson sequence
 - using more than 3 multi-answer questions in a 10-question test
-- omitting the `Выберите N верных варианта.` line for a multi-answer question
+- omitting the `Выберите N правильных вариантов.` line for a multi-answer question
+- writing the question as a Markdown heading such as `## 1. ...` instead of a plain numbered line
+- using checkbox, radio, bullet, or emoji markers instead of `+ ` and `- `
 - making correct answers obviously longer, more specific, or grammatically different than distractors
 - using organizational material as test questions
 - asking about what the teacher recommended or said when the same content can be tested as a direct subject fact
@@ -437,3 +444,4 @@ Avoid these failure modes:
 
 Use [references/editorial-note-template.md](references/editorial-note-template.md) as the default lesson-note skeleton and checklist.
 Use [references/lesson-test-template.txt](references/lesson-test-template.txt) as the default lesson-test skeleton and checklist.
+Use [references/lesson-timecodes-template.md](references/lesson-timecodes-template.md) as the default timecodes skeleton and checklist.
