@@ -386,15 +386,20 @@ When transcript wording and supplemental materials differ:
 
 After completing the draft, review all rules, requirements, restrictions, and anti-patterns in this skill before returning the final text.
 This review is mandatory.
+For lesson notes, the rule-by-rule validation must be performed by a separate subagent whenever the environment supports subagents.
+That validation subagent must not rewrite the note itself. It must return only a concrete fix list: what rule is violated, where the problem is, and what needs to be corrected.
+The primary agent must apply those fixes, then run the validation again until the separate validation pass finds no remaining rule violations.
+If the current environment does not support subagents, explicitly state that the separate subagent validation could not be run and perform the same full validation inline instead of silently skipping it.
 
 Validation procedure:
 
 1. Compare the finished output against every rule and restriction in `SKILL.md` and the relevant reference template.
-2. If any single rule is violated, revise the note until the violation is removed.
-3. Run a drying pass: remove words, phrases, repeated explanations, and second explanatory sentences that can be deleted without losing meaning or practical value.
-4. Preserve necessary details, examples, steps, warnings, and operational conditions; do not shorten by deleting meaningful lesson content.
-5. After revising, run the validation again from the start.
-6. Return the final note only after it passes this full re-check.
+2. For lesson notes, send that comparison to a separate validation subagent when subagents are available and request a concrete fix list rather than a rewritten note.
+3. If any single rule is violated, revise the note until the violation is removed.
+4. Run a drying pass: remove words, phrases, repeated explanations, and second explanatory sentences that can be deleted without losing meaning or practical value.
+5. Preserve necessary details, examples, steps, warnings, and operational conditions; do not shorten by deleting meaningful lesson content.
+6. After revising, run the validation again from the start.
+7. Return the final note only after it passes this full re-check.
 
 Do not stop after one correction pass if violations still remain.
 

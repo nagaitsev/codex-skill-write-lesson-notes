@@ -92,6 +92,10 @@ By default, save the finished note as a `.md` file.
 
 ## Final Self-Check
 
+- Run the final rule-by-rule note check through a separate validation subagent when subagents are available.
+- The validation subagent should return only a concrete fix list, not a rewritten note.
+- Apply those fixes in the main draft, then rerun the validation until no violations remain.
+- If the environment cannot run subagents, state that explicitly and perform the same full check inline.
 - Re-read all rules, restrictions, and anti-patterns before returning the note.
 - If any rule is broken, fix the text and run the check again.
 - Split neighboring practical topics into separate `#` sections when they cover different tools, modes, problems, or tasks.
