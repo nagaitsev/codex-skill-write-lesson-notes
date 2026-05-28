@@ -6,6 +6,8 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 
 - The default output is a clean timestamp list.
 - Each line contains only a YouTube-style timestamp and a topic title.
+- The default output uses plain text lines, not Markdown headings.
+- The required default line shape is exactly `<таймкод> <тема>`.
 - Default example:
 
 ```md
@@ -15,6 +17,7 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 ```
 
 - Do not add paragraphs, bullets, or commentary under each timestamp by default.
+- Do not prefix default timecode lines with `#`, `-`, `*`, or other Markdown markers.
 - Do not turn timecodes into a mini-note or a compact lesson summary unless the user explicitly asks for an annotated or expanded version.
 
 ## Allowed Expanded Variant
@@ -36,6 +39,7 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 - turning timecodes into a lesson note
 - mixing note structure rules such as `# Содержание` into timecodes mode
 - outputting Markdown headings like `# 0:00 Тема` when the user asked for ordinary YouTube timecodes
+- outputting a bullet list or any other Markdown wrapper instead of plain timestamp lines
 - inventing timestamps from plain transcript text without subtitle cues
 - splitting one stable topic into many tiny timestamp lines without a real topic switch
 
@@ -43,6 +47,7 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 
 - The input file is real subtitles, not plain text.
 - The output is a clean timestamp list by default.
+- The output uses plain lines like `0:00 Введение`, not Markdown headings.
 - Each line starts with a valid YouTube-style timestamp.
 - Each line keeps only timestamp plus topic title unless expansion was explicitly requested.
 - The topic order matches the subtitle order.

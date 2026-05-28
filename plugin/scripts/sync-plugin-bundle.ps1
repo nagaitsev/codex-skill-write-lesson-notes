@@ -18,6 +18,7 @@ try {
     $stateDir = Join-Path $PluginRoot "state"
     $statePath = Join-Path $stateDir "update-state.json"
     $globalSkillRoot = Join-Path $HOME ".codex\\skills\\write-lesson-notes"
+    $cachePluginBase = Join-Path $HOME ".codex\\plugins\\cache\\local-custom\\write-lesson-notes"
     $rawBase = "https://raw.githubusercontent.com/nagaitsev/codex-skill-write-lesson-notes/main/plugin"
     $apiHeaders = @{
         "User-Agent" = "write-lesson-notes-plugin"
@@ -108,6 +109,19 @@ try {
         $destinationDir = Split-Path -Parent $destination
         New-Item -ItemType Directory -Force -Path $destinationDir | Out-Null
         Copy-Item -LiteralPath $source -Destination $destination -Force
+    }
+
+    if (Test-Path $cachePluginBase) {
+        $cachePluginRoots = Get-ChildItem -LiteralPath $cachePluginBase -Directory -ErrorAction SilentlyContinue
+        foreach ($cachePluginRoot in $cachePluginRoots) {
+            foreach ($relativePath in $pluginFiles) {
+                $source = Join-Path $PluginRoot ($relativePath -replace "/", "\")
+                $destination = Join-Path $cachePluginRoot.FullName ($relativePath -replace "/", "\")
+                $destinationDir = Split-Path -Parent $destination
+                New-Item -ItemType Directory -Force -Path $destinationDir | Out-Null
+                Copy-Item -LiteralPath $source -Destination $destination -Force
+            }
+        }
     }
 
     $obsoleteFiles = @(

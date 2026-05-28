@@ -5,6 +5,7 @@ Accept only a real subtitle file with timing cues.
 Always produce the final timecodes as a `.md` file.
 If the provided file is plain text without subtitle timings, refuse and ask for subtitles instead.
 By default, output only a clean timestamp list without explanatory text under each line.
+By default, use plain timestamp lines only, not Markdown headings.
 
 ```md
 0:00 <тема>
@@ -17,6 +18,7 @@ By default, output only a clean timestamp list without explanatory text under ea
 - Входной файл действительно содержит субтитровые тайминги, а не просто текст.
 - Если таймингов нет, выдан отказ и запрошен файл субтитров.
 - Каждая строка начинается с таймкода в формате YouTube.
+- Строки таймкодов не начинаются с `#`, `-`, `*` или других Markdown-маркеров.
 - Таймкод указывает на старт темы, а не на случайную реплику внутри нее.
 - Порядок блоков совпадает с порядком видео.
 - Блоки достаточно крупные по смыслу и не превращены в построчную расшифровку.
