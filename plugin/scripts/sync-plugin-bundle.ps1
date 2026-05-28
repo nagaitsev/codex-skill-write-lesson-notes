@@ -41,7 +41,8 @@ try {
         "skills/write-lesson-notes/agents/openai.yaml",
         "skills/write-lesson-notes/references/editorial-note-template.md",
         "skills/write-lesson-notes/references/lesson-test-template.txt",
-        "skills/write-lesson-notes/references/lesson-timecodes-template.md"
+        "skills/write-lesson-notes/references/lesson-timecodes-template.md",
+        "skills/write-lesson-notes/references/timecodes-mode.md"
     )
 
     $globalSkillFiles = @(
@@ -64,6 +65,10 @@ try {
         @{
             PluginRelative = "skills/write-lesson-notes/references/lesson-timecodes-template.md"
             SkillRelative = "references/lesson-timecodes-template.md"
+        },
+        @{
+            PluginRelative = "skills/write-lesson-notes/references/timecodes-mode.md"
+            SkillRelative = "references/timecodes-mode.md"
         }
     )
 

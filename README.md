@@ -20,6 +20,7 @@
 - `references/editorial-note-template.md` - шаблон и чеклист конспекта
 - `references/lesson-test-template.txt` - шаблон и чеклист теста
 - `references/lesson-timecodes-template.md` - шаблон и чеклист таймкодов
+- `references/timecodes-mode.md` - отдельные правила режима таймкодов
 
 ## Основные Триггеры
 

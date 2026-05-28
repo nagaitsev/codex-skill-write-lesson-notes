@@ -1,6 +1,6 @@
 ---
 name: write-lesson-notes
-description: Create an editorial-style lesson note in Markdown, a lesson test in TXT, or YouTube-style timecodes in Markdown from a lesson transcript, subtitle file, and supplemental materials such as slides, links, handouts, screenshots, or PDFs. Use when Codex receives a request like "Напиши конспект занятия", "Сгенери содержание", "Сделай тест", or "Сделай таймкоды". For notes, produce a polished thematic note with a contents block, practical section titles, short meaningful subheadings, integrated definitions and workflows, optional images from the lesson materials or the web, and a final list of links and services mentioned in the lesson. For tests, produce 10 questions in the exact teaching order of the lesson with controlled single-answer and limited multi-answer questions. For timecodes, accept only real subtitle files with timing cues and turn them into a concise topic outline whose headings are YouTube-formatted timestamps. Verify externally checkable terms, product names, hotkeys, and URLs before finalizing the note, test, or timecodes, preferring official sources.
+description: Create an editorial-style lesson note in Markdown, a lesson test in TXT, or YouTube-style timecodes in Markdown from a lesson transcript, subtitle file, and supplemental materials such as slides, links, handouts, screenshots, or PDFs. Use when Codex receives a request like "Напиши конспект занятия", "Сгенери содержание", "Сделай тест", or "Сделай таймкоды". For notes, produce a polished thematic note with a contents block, practical section titles, short meaningful subheadings, integrated definitions and workflows, optional images from the lesson materials or the web, and a final list of links and services mentioned in the lesson. For tests, produce 10 questions in the exact teaching order of the lesson with controlled single-answer and limited multi-answer questions. For timecodes, accept only real subtitle files with timing cues and turn them into a clean timestamp list in YouTube format by default, without explanatory paragraphs after each timestamp unless the user explicitly asks for an annotated version. Verify externally checkable terms, product names, hotkeys, and URLs before finalizing the note, test, or timecodes, preferring official sources.
 ---
 
 # Write Lesson Notes
@@ -11,7 +11,7 @@ Turn a transcript and lesson materials into either:
 
 - a readable editorial lesson note
 - or a structured lesson test
-- or a timecoded topic outline built from subtitle files
+- or a clean timecodes list built from subtitle files
 
 Preserve the lesson's meaning, terminology, structure, and real teaching order.
 Present the result as clean study material without direct speech, teacher references, or quote formatting.
@@ -152,19 +152,20 @@ If the user explicitly asks `Сделай таймкоды`:
 3. If the provided file is plain text without subtitle timing cues, refuse this mode and explicitly ask for a subtitle file instead. Do not fabricate timecodes from a plain transcript.
 4. If the subtitle file is too malformed to recover reliable topic start times, refuse and ask for a cleaner subtitle export instead of guessing.
 5. Reconstruct the video flow from the subtitle stream and split it into meaningful thematic blocks in the real order of the video.
-6. Produce a compact study outline rather than a full lesson note. Each major block must start with one YouTube-style timestamp heading that marks the beginning of that topic.
-7. Format each top-level heading as `# <таймкод> <тема>`, for example `# 0:00 Введение` or `# 1:12:43 Финальный экспорт`.
-8. Use only the topic start time for each heading. Do not add decorative intermediate timecodes that are not supported by the subtitles.
-9. Format timecodes as `M:SS` under one hour and `H:MM:SS` at one hour or longer.
-10. Normalize the very first heading to `0:00` when the opening subtitle cue starts a few seconds later but clearly belongs to the start of the video.
-11. Under each heading, keep either one short paragraph or 1 to 3 short bullets that capture the practical substance of that segment.
-12. Prefer fewer meaningful topic blocks over line-by-line timestamping. Create a new heading only when the video clearly switches to a new topic, tool, step, mode, or task.
-13. Write the final timecoded outline into a `.md` file by default.
+6. By default, produce a clean timestamp list rather than an outline with explanatory text.
+7. Format each line as `<таймкод> <тема>`, for example `0:00 Введение` or `1:12:43 Финальный экспорт`.
+8. Do not add paragraphs, bullets, or explanatory lines under timestamps unless the user explicitly asks for an annotated or expanded version.
+9. Use only the topic start time for each line. Do not add decorative intermediate timecodes that are not supported by the subtitles.
+10. Format timecodes as `M:SS` under one hour and `H:MM:SS` at one hour or longer.
+11. Normalize the very first line to `0:00` when the opening subtitle cue starts a few seconds later but clearly belongs to the start of the video.
+12. Prefer fewer meaningful topic blocks over line-by-line timestamping. Create a new timestamp only when the video clearly switches to a new topic, tool, step, mode, or task.
+13. Write the final timecodes into a `.md` file by default.
 14. Verify terminology, product names, hotkeys, and externally checkable names before finalizing the timecodes.
+15. For detailed timecodes rules and edge cases, use [references/timecodes-mode.md](references/timecodes-mode.md) together with [references/lesson-timecodes-template.md](references/lesson-timecodes-template.md).
 
-## Structure Rules
+## Note Structure Rules
 
-Use this default structure unless the user asks for another one:
+Use this default structure for lesson notes unless the user asks for another one:
 
 1. `# Содержание`
 2. Flat bullet list of the main thematic sections, generated from the final set of substantive level-1 lesson headings
@@ -297,9 +298,10 @@ For timecodes:
 - Refuse the task if the provided file does not contain subtitle timing structure.
 - Keep the topic order aligned with the real subtitle order.
 - Prefer topic-level blocks over overly granular timestamp slicing.
-- Use the subtitle-derived topic start as the heading time.
-- Use YouTube-style heading format: `# <таймкод> <тема>`.
-- Keep each block compact and practical rather than rewriting the full lesson note.
+- Use the subtitle-derived topic start as the timestamp.
+- Use YouTube-style line format: `<таймкод> <тема>`.
+- By default, output only the timestamp lines themselves, without explanatory paragraphs or bullets under them.
+- Add explanatory text under timestamps only when the user explicitly asks for an annotated, expanded, or outline-style version.
 - Do not invent timestamps for topics that cannot be reliably anchored in the subtitle stream.
 
 ## Verification Rules
@@ -375,9 +377,10 @@ When transcript wording and supplemental materials differ:
 - For tests, check whether rephrasing preserved the original meaning without adding new meaning, inference, or editorial interpretation.
 - For tests, check whether the wording is direct and impersonal rather than tied to the teacher or lesson narration.
 - For timecodes, check whether the input file was a real subtitle file with timing cues rather than plain text.
-- For timecodes, check whether every top-level heading begins with a YouTube-formatted timestamp.
-- For timecodes, check whether the heading order follows the subtitle order.
+- For timecodes, check whether every line begins with a YouTube-formatted timestamp.
+- For timecodes, check whether the line order follows the subtitle order.
 - For timecodes, check whether timestamps mark real topic starts instead of guessed decorative splits.
+- For timecodes, check whether the default output stayed a clean timestamp list without explanatory text under each timestamp unless the user explicitly asked for expansion.
 - For timecodes, check whether the result was written to a `.md` file unless the user explicitly requested chat-only output.
 - Check whether the final structure follows the factual structure of the lesson rather than an editor-friendly simplification.
 - If no transcript or materials are provided, request them instead of inventing content.
@@ -471,3 +474,4 @@ Avoid these failure modes:
 Use [references/editorial-note-template.md](references/editorial-note-template.md) as the default lesson-note skeleton and checklist.
 Use [references/lesson-test-template.txt](references/lesson-test-template.txt) as the default lesson-test skeleton and checklist.
 Use [references/lesson-timecodes-template.md](references/lesson-timecodes-template.md) as the default timecodes skeleton and checklist.
+Use [references/timecodes-mode.md](references/timecodes-mode.md) for detailed timecodes mode rules and anti-patterns.
