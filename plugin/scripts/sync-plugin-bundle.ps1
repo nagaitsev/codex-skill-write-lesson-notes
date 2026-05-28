@@ -39,9 +39,12 @@ try {
         "scripts/sync-plugin-bundle.ps1",
         "skills/write-lesson-notes/SKILL.md",
         "skills/write-lesson-notes/agents/openai.yaml",
+        "skills/write-lesson-notes/references/contents-mode.md",
         "skills/write-lesson-notes/references/editorial-note-template.md",
         "skills/write-lesson-notes/references/lesson-test-template.txt",
         "skills/write-lesson-notes/references/lesson-timecodes-template.md",
+        "skills/write-lesson-notes/references/note-mode.md",
+        "skills/write-lesson-notes/references/test-mode.md",
         "skills/write-lesson-notes/references/timecodes-mode.md"
     )
 
@@ -55,6 +58,10 @@ try {
             SkillRelative = "agents/openai.yaml"
         },
         @{
+            PluginRelative = "skills/write-lesson-notes/references/contents-mode.md"
+            SkillRelative = "references/contents-mode.md"
+        },
+        @{
             PluginRelative = "skills/write-lesson-notes/references/editorial-note-template.md"
             SkillRelative = "references/editorial-note-template.md"
         },
@@ -65,6 +72,14 @@ try {
         @{
             PluginRelative = "skills/write-lesson-notes/references/lesson-timecodes-template.md"
             SkillRelative = "references/lesson-timecodes-template.md"
+        },
+        @{
+            PluginRelative = "skills/write-lesson-notes/references/note-mode.md"
+            SkillRelative = "references/note-mode.md"
+        },
+        @{
+            PluginRelative = "skills/write-lesson-notes/references/test-mode.md"
+            SkillRelative = "references/test-mode.md"
         },
         @{
             PluginRelative = "skills/write-lesson-notes/references/timecodes-mode.md"

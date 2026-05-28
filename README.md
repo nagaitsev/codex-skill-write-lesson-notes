@@ -1,6 +1,7 @@
 # Codex Skill: Write Lesson Notes
 
 Скилл Codex для создания компактных конспектов занятий в формате Markdown, тестов занятий в формате TXT и таймкодов по субтитрам в формате Markdown.
+Основной `SKILL.md` теперь работает как роутер, а подробные правила режимов вынесены в отдельные reference-файлы.
 
 ## Что Делает
 
@@ -17,9 +18,12 @@
 
 - `SKILL.md` - основная инструкция скилла
 - `agents/openai.yaml` - UI-метаданные
+- `references/contents-mode.md` - правила команды `Сделай содержание`
 - `references/editorial-note-template.md` - шаблон и чеклист конспекта
 - `references/lesson-test-template.txt` - шаблон и чеклист теста
 - `references/lesson-timecodes-template.md` - шаблон и чеклист таймкодов
+- `references/note-mode.md` - подробные правила режима конспекта
+- `references/test-mode.md` - подробные правила режима теста
 - `references/timecodes-mode.md` - отдельные правила режима таймкодов
 
 ## Основные Триггеры
