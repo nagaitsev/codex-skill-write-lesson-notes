@@ -17,8 +17,6 @@ function Write-Status {
 try {
     $stateDir = Join-Path $PluginRoot "state"
     $statePath = Join-Path $stateDir "update-state.json"
-    $globalSkillRoot = Join-Path $HOME ".codex\\skills\\write-lesson-notes"
-    $cachePluginBase = Join-Path $HOME ".codex\\plugins\\cache\\local-custom\\write-lesson-notes"
     $rawBase = "https://raw.githubusercontent.com/nagaitsev/codex-skill-write-lesson-notes/main/plugin"
     $apiHeaders = @{
         "User-Agent" = "write-lesson-notes-plugin"
@@ -36,8 +34,10 @@ try {
     $pluginFiles = @(
         ".codex-plugin/plugin.json",
         "hooks.json",
+        "scripts/build-plugin-bundle.ps1",
         "scripts/update-plugin.ps1",
         "scripts/sync-plugin-bundle.ps1",
+        "scripts/verify-plugin-bundle.ps1",
         "skills/write-lesson-notes/SKILL.md",
         "skills/write-lesson-notes/agents/openai.yaml",
         "skills/write-lesson-notes/references/contents-mode.md",
@@ -47,45 +47,6 @@ try {
         "skills/write-lesson-notes/references/note-mode.md",
         "skills/write-lesson-notes/references/test-mode.md",
         "skills/write-lesson-notes/references/timecodes-mode.md"
-    )
-
-    $globalSkillFiles = @(
-        @{
-            PluginRelative = "skills/write-lesson-notes/SKILL.md"
-            SkillRelative = "SKILL.md"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/agents/openai.yaml"
-            SkillRelative = "agents/openai.yaml"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/contents-mode.md"
-            SkillRelative = "references/contents-mode.md"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/editorial-note-template.md"
-            SkillRelative = "references/editorial-note-template.md"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/lesson-test-template.txt"
-            SkillRelative = "references/lesson-test-template.txt"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/lesson-timecodes-template.md"
-            SkillRelative = "references/lesson-timecodes-template.md"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/note-mode.md"
-            SkillRelative = "references/note-mode.md"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/test-mode.md"
-            SkillRelative = "references/test-mode.md"
-        },
-        @{
-            PluginRelative = "skills/write-lesson-notes/references/timecodes-mode.md"
-            SkillRelative = "references/timecodes-mode.md"
-        }
     )
 
     $tempDir = Join-Path ([System.IO.Path]::GetTempPath()) ("write-lesson-notes-bundle-" + [guid]::NewGuid().ToString("N"))
@@ -101,27 +62,6 @@ try {
         $destinationDir = Split-Path -Parent $destination
         New-Item -ItemType Directory -Force -Path $destinationDir | Out-Null
         Copy-Item -LiteralPath $tmpFile -Destination $destination -Force
-    }
-
-    foreach ($file in $globalSkillFiles) {
-        $source = Join-Path $PluginRoot ($file.PluginRelative -replace "/", "\")
-        $destination = Join-Path $globalSkillRoot ($file.SkillRelative -replace "/", "\")
-        $destinationDir = Split-Path -Parent $destination
-        New-Item -ItemType Directory -Force -Path $destinationDir | Out-Null
-        Copy-Item -LiteralPath $source -Destination $destination -Force
-    }
-
-    if (Test-Path $cachePluginBase) {
-        $cachePluginRoots = Get-ChildItem -LiteralPath $cachePluginBase -Directory -ErrorAction SilentlyContinue
-        foreach ($cachePluginRoot in $cachePluginRoots) {
-            foreach ($relativePath in $pluginFiles) {
-                $source = Join-Path $PluginRoot ($relativePath -replace "/", "\")
-                $destination = Join-Path $cachePluginRoot.FullName ($relativePath -replace "/", "\")
-                $destinationDir = Split-Path -Parent $destination
-                New-Item -ItemType Directory -Force -Path $destinationDir | Out-Null
-                Copy-Item -LiteralPath $source -Destination $destination -Force
-            }
-        }
     }
 
     $obsoleteFiles = @(

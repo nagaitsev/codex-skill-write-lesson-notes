@@ -25,17 +25,34 @@
 - `references/note-mode.md` - подробные правила режима конспекта
 - `references/test-mode.md` - подробные правила режима теста
 - `references/timecodes-mode.md` - отдельные правила режима таймкодов
+- `plugin/scripts/build-plugin-bundle.ps1` - обновляет plugin bundle из корневых исходников
+- `plugin/scripts/verify-plugin-bundle.ps1` - проверяет plugin-only схему и отсутствие дрейфа
 
 ## Основные Триггеры
 
 Используйте для запросов вроде `Напиши конспект занятия`, `Сгенери содержание`, `Сделай тест` или `Сделай таймкоды`.
 ## Plugin
 
-The skill also has a home-local Codex plugin version on the user's machine:
+Repository root is the canonical authoring source for:
+
+- `SKILL.md`
+- `agents/openai.yaml`
+- `references/*`
+
+The plugin bundle lives under `plugin/` and should be refreshed from the root sources before release:
+
+- Build bundle: `powershell -ExecutionPolicy Bypass -File .\plugin\scripts\build-plugin-bundle.ps1`
+- Verify bundle: `powershell -ExecutionPolicy Bypass -File .\plugin\scripts\verify-plugin-bundle.ps1`
+
+Runtime delivery is plugin-only:
 
 - Plugin root: `C:\Users\BEST_USER\plugins\write-lesson-notes`
 - Marketplace: `C:\Users\BEST_USER\.agents\plugins\marketplace.json`
+- SessionStart refreshes only the installed plugin bundle from GitHub
 
-The canonical plugin bundle now also lives in this repository under `plugin/`.
+Legacy standalone skill copies can still exist from older installs, for example:
 
-The plugin bundles the `write-lesson-notes` skill and runs a `SessionStart` hook that syncs the full plugin bundle from the GitHub repository into the local plugin, then mirrors the skill files into `C:\Users\BEST_USER\.codex\skills\write-lesson-notes`.
+- `C:\Users\BEST_USER\.agents\skills\write-lesson-notes`
+- `C:\Users\BEST_USER\.codex\skills\write-lesson-notes`
+
+Those legacy duplicates should be removed manually once after migrating to the plugin-only scheme.

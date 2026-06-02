@@ -38,13 +38,10 @@ try {
     $stateDir = Join-Path $pluginRoot "state"
     $statePath = Join-Path $stateDir "update-state.json"
     $repoApi = "https://api.github.com/repos/nagaitsev/codex-skill-write-lesson-notes/commits/main"
-    $rawSyncUrl = "https://raw.githubusercontent.com/nagaitsev/codex-skill-write-lesson-notes/main/plugin/scripts/sync-plugin-bundle.ps1"
+    $syncScriptPath = Join-Path $pluginRoot "scripts\sync-plugin-bundle.ps1"
     $apiHeaders = @{
         "User-Agent" = "write-lesson-notes-plugin"
         "Accept" = "application/vnd.github+json"
-    }
-    $rawHeaders = @{
-        "User-Agent" = "write-lesson-notes-plugin"
     }
 
     $now = [DateTime]::UtcNow
@@ -79,12 +76,13 @@ try {
         exit 0
     }
 
-    $tempScript = Join-Path ([System.IO.Path]::GetTempPath()) ("sync-plugin-bundle-" + [guid]::NewGuid().ToString("N") + ".ps1")
-    Invoke-WebRequest -Uri $rawSyncUrl -Headers $rawHeaders -OutFile $tempScript
+    if (-not (Test-Path -LiteralPath $syncScriptPath)) {
+        throw "Missing local sync script: $syncScriptPath"
+    }
 
     $childArgs = @(
         "-ExecutionPolicy", "Bypass",
-        "-File", $tempScript,
+        "-File", $syncScriptPath,
         "-PluginRoot", $pluginRoot,
         "-LatestSha", $latestSha
     )
@@ -95,7 +93,6 @@ try {
     & powershell @childArgs
     $exitCode = $LASTEXITCODE
 
-    Remove-Item -LiteralPath $tempScript -Force -ErrorAction SilentlyContinue
     exit $exitCode
 } catch {
     Write-Status ("write-lesson-notes: plugin update skipped - " + $_.Exception.Message)
