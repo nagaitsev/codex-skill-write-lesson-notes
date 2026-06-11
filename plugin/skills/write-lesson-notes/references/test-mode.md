@@ -41,7 +41,8 @@ Rules:
 ## Wording Rules
 
 - Write questions impersonally and factually.
-- Avoid constructions like `преподаватель рекомендует`, `в занятии описывается`, or `по материалу занятия`, unless the fact cannot be asked in a direct subject form.
+- Remove meta-phrases that point back to the lesson, for example `преподаватель рекомендует`, `на занятии`, `на уроке`, `в занятии`, `в уроке`, `урок показывает`, or `по материалу занятия`.
+- Rewrite such formulations into direct subject-based questions.
 - Write questions as direct knowledge checks about the subject, not as questions about what the teacher said or how the lesson was phrased.
 - Keep question formulations compact and easy to read.
 - Keep answer options compact and easy to read.
@@ -73,9 +74,13 @@ After drafting the test:
 
 1. Verify terminology, product names, hotkeys, and externally checkable details.
 2. Run a dedicated answer-balance pass.
-3. Re-read all test-mode rules and the template checklist.
-4. Fix every detected violation.
-5. Verify that the final result was written to a `.txt` file unless the user explicitly requested chat-only output.
+3. Run the final rule-by-rule test check through a separate validation subagent when subagents are available.
+4. The validation subagent must return only a concrete fix list, not a rewritten test.
+5. Apply those fixes in the main draft, then rerun the validation until no violations remain.
+6. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
+7. Re-read all test-mode rules and the template checklist.
+8. Fix every detected violation.
+9. Verify that the final result was written to a `.txt` file unless the user explicitly requested chat-only output.
 
 Validation checklist:
 
@@ -92,6 +97,7 @@ Validation checklist:
 - correct and incorrect options are balanced in length and shape
 - no question tests a synthesized claim that was not explicitly taught
 - wording stays direct and impersonal
+- no question refers back to the lesson, the teacher, or the phrasing of the lesson
 
 ## Anti-Patterns
 
@@ -109,3 +115,4 @@ Avoid these failure modes:
 - making correct answers obviously longer, more specific, or grammatically different than distractors
 - combining separate lesson fragments into a new question meaning that was not explicitly taught
 - inferring or inventing an intermediate conclusion and then testing that invented conclusion as if it had been said
+- adding recap language like `на занятии`, `на уроке`, `преподаватель рекомендует`, `в занятии`, or `по материалу занятия`
