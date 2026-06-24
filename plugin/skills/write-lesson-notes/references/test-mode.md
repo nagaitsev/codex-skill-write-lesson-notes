@@ -31,6 +31,9 @@ Rules:
 - Reconstruct the lesson sequence first, then keep the question sequence in that same order.
 - Keep the question order aligned with the order of the selected substantive lesson topics.
 - When selecting 10 questions, prioritize terms, models, tariffs, tools, workflows, limitations, settings, comparisons, and practical rules.
+- Prefer questions that check transferable knowledge: concepts, distinctions, criteria, workflows, limitations, and decision rules that remain valid outside the exact lesson demo.
+- Ask about the new knowledge the student should retain, not about the one-off implementation details of the classroom demo, the exact lesson-specific execution path, or the concrete shape of the homework when a more general question can test the same knowledge.
+- Use implementation-specific or homework-specific details only when that exact detail was itself taught as the reusable rule, required standard, or important limitation.
 - Do not spend early question slots on weak course logistics if stronger substantive material appears later.
 - If a weak question is replaced, replace it with the next stronger substantive topic from later in the lesson while preserving the order among the selected topics.
 - Prefer questions that check practical distinctions, terminology, steps, limitations, and tool behavior actually taught in the lesson.
@@ -98,6 +101,8 @@ Validation checklist:
 - no question tests a synthesized claim that was not explicitly taught
 - wording stays direct and impersonal
 - no question refers back to the lesson, the teacher, or the phrasing of the lesson
+- questions test retained knowledge rather than lesson-specific implementation trivia
+- homework-specific or demo-specific details appear only when they were taught as reusable rules or important constraints
 
 ## Anti-Patterns
 
@@ -116,3 +121,4 @@ Avoid these failure modes:
 - combining separate lesson fragments into a new question meaning that was not explicitly taught
 - inferring or inventing an intermediate conclusion and then testing that invented conclusion as if it had been said
 - adding recap language like `на занятии`, `на уроке`, `преподаватель рекомендует`, `в занятии`, or `по материалу занятия`
+- asking about one-off implementation details from the demo or homework when the same knowledge could be tested in a more general form
