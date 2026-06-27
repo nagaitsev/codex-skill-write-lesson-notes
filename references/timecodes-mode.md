@@ -29,6 +29,8 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 
 - Build the list only from real subtitle timing cues.
 - Use only timestamps that can be anchored reliably in the subtitle file.
+- While processing subtitles for timecodes, correct obvious recognition errors in the original subtitle file if they are clearly identifiable from context.
+- Limit such subtitle corrections to clear ASR mistakes in terms, names, commands, hotkeys, and other surface wording; do not rewrite meaning, compress phrasing, or retime subtitles under the guise of cleanup.
 - Prefer meaningful topic changes over line-by-line slicing.
 - Keep the order identical to the video order.
 - Use the start of the topic, not a decorative midpoint.
@@ -42,10 +44,13 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 - outputting a bullet list or any other Markdown wrapper instead of plain timestamp lines
 - inventing timestamps from plain transcript text without subtitle cues
 - splitting one stable topic into many tiny timestamp lines without a real topic switch
+- rewriting subtitle meaning or freely editing subtitle text instead of fixing only obvious recognition mistakes
 
 ## Final Timecodes Check
 
 - The input file is real subtitles, not plain text.
+- If obvious subtitle recognition errors were found, they were corrected in the original subtitle file before finalizing.
+- Only clear subtitle recognition mistakes were corrected; the subtitle meaning, structure, and timings were not editorially rewritten.
 - The output is a clean timestamp list by default.
 - The output uses plain lines like `0:00 Введение`, not Markdown headings.
 - Each line starts with a valid YouTube-style timestamp.
