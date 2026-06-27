@@ -6,11 +6,12 @@ Always produce the final timecodes as a `.md` file.
 If the provided file is plain text without subtitle timings, refuse and ask for subtitles instead.
 By default, output only a clean timestamp list without explanatory text under each line.
 By default, use plain timestamp lines only, not Markdown headings.
+Always use the strict `чч:мм:сс` format with all three segments and leading zeros where needed.
 
 ```md
-0:00 <тема>
-3:42 <тема>
-12:18 <тема>
+00:00:00 <тема>
+00:03:42 <тема>
+00:12:18 <тема>
 ```
 
 ## Timecodes Checklist
@@ -20,7 +21,8 @@ By default, use plain timestamp lines only, not Markdown headings.
 - Если по ходу обработки найдены явные ошибки распознавания, они исправлены в исходном файле субтитров.
 - Исправления в субтитрах ограничены только очевидными ошибками распознавания терминов, имен, команд, горячих клавиш и других поверхностных формулировок.
 - Смысл, структура фраз и тайминги субтитров не переписаны редакторски под видом исправления.
-- Каждая строка начинается с таймкода в формате YouTube.
+- Каждая строка начинается с таймкода строго в формате `чч:мм:сс`.
+- Не используются сокращенные формы таймкода вроде `0:00`, `6:33` или `10:41`.
 - Строки таймкодов не начинаются с `#`, `-`, `*` или других Markdown-маркеров.
 - Таймкод указывает на старт темы, а не на случайную реплику внутри нее.
 - Порядок блоков совпадает с порядком видео.
