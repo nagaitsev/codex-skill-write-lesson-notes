@@ -43,6 +43,14 @@ Rules:
 - Keep headings focused on the actual subject matter, not on the fact that something was shown or explained.
 - If two headings express the same meaning, prefer the shorter practical version.
 
+## Pre-Drafting Rules
+
+Before drafting the note:
+
+1. Read the entire provided transcript sequentially from start to finish.
+2. Do not start from an arbitrary offset, skip sections, or rely on fragmentary reads from earlier turns (e.g. when the same file was scanned for a test or a different task).
+3. After drafting the contents outline, scan the transcript again and verify that every substantive topic block (tool, workflow, concept) mentioned in the source is either present in the outline or explicitly excluded with a reason. Do not trust memory alone for coverage.
+
 ## Coverage Rules
 
 The note must preserve:
@@ -87,13 +95,16 @@ After drafting the note:
 
 1. Re-read all rules, restrictions, and anti-patterns for note mode.
 2. Run the final rule-by-rule note check through a separate validation subagent when subagents are available.
-3. The validation subagent must return only a concrete fix list, not a rewritten note.
-4. Apply those fixes in the main draft, then rerun the validation until no violations remain.
-5. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
-6. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
-7. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
-8. Run a drying pass.
-9. Return the note only after the full check passes with no known violations.
+3. The validation subagent must cross-check the contents outline against the transcript: list every substantive topic mentioned in the source, mark which ones are covered in the note, and flag any that are missing.
+
+4. The validation subagent must return only a concrete fix list, not a rewritten note.
+5. Apply those fixes in the main draft, then rerun the validation until no violations remain.
+6. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
+7. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
+
+8. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.9. Run a drying pass.
+
+10. Return the note only after the full check passes with no known violations.
 
 Drying pass rules:
 
