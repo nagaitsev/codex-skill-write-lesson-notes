@@ -57,6 +57,7 @@ By default, save the finished note as a `.md` file.
 - Prefer prose paragraphs over bullets.
 - Write as direct subject matter notes, not as a recap of what happened in class.
 - Remove phrases like `на занятии`, `преподаватель отмечает`, `урок показывает`.
+- Mandatory source-neutrality check: exclude phrases such as `в транскрипте название звучит как` and any other wording that reveals the source or creation process. If recognition or transcription uncertainty needs to be reported, place it only in an optional editorial or verification note before `# Содержание`; the note itself must be a complete study handout, not a retelling.
 - Do not add filler lead-ins before lists like `Показанный прием такой` or `Сценарий выглядит так`.
 - Keep `###` headings specific and meaningful.
 - Make section titles practical and compact.
@@ -86,6 +87,9 @@ By default, save the finished note as a `.md` file.
 - detached limitations section when warnings belong to a specific tool block
 - deleting examples that carry the method
 - adding recap language like `на занятии`, `урок показывает`, `преподаватель отмечает`
+- source-revealing phrases such as `в транскрипте название звучит как`
+- recognition or transcription uncertainty inside the substantive note instead of an optional pre-contents note
+- a recap of the lesson instead of a complete study handout
 - filler phrases before lists and procedures
 - dropping homework rules or operational conditions
 - excluding blocks only because a tool name needs verification
@@ -98,6 +102,7 @@ By default, save the finished note as a `.md` file.
 - If the environment cannot run subagents, state that explicitly and perform the same full check inline.
 - Re-read all rules, restrictions, and anti-patterns before returning the note.
 - If any rule is broken, fix the text and run the check again.
+- Run the source-neutrality and finished-product check as a separate validation item: no source-revealing phrases; any recognition uncertainty only before `# Содержание`; the note is a complete study handout, not a retelling.
 - Split neighboring practical topics into separate `#` sections when they cover different tools, modes, problems, or tasks.
 - Keep `#` headings short and subject-based.
 - Remove meta-subheadings like `Практический вывод` or `Почему это ценно` when a direct heading or immediate paragraph works better.

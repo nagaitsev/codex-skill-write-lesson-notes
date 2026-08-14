@@ -31,8 +31,11 @@ Rules:
 - Reconstruct the lesson sequence first, then keep the question sequence in that same order.
 - Keep the question order aligned with the order of the selected substantive lesson topics.
 - When selecting 10 questions, prioritize terms, models, tariffs, tools, workflows, limitations, settings, comparisons, and practical rules.
+- Do not use news or current-event updates as test material.
 - Prefer questions that check transferable knowledge: concepts, distinctions, criteria, workflows, limitations, and decision rules that remain valid outside the exact lesson demo.
+- Formulate questions as generally as possible while preserving the lesson's exact terms and meaning.
 - Ask about the new knowledge the student should retain, not about the one-off implementation details of the classroom demo, the exact lesson-specific execution path, or the concrete shape of the homework when a more general question can test the same knowledge.
+- Do not include answers to questions asked during the lesson in the test if those answers did not explain or develop the lesson topic.
 - Use implementation-specific or homework-specific details only when that exact detail was itself taught as the reusable rule, required standard, or important limitation.
 - Do not spend early question slots on weak course logistics if stronger substantive material appears later.
 - If a weak question is replaced, replace it with the next stronger substantive topic from later in the lesson while preserving the order among the selected topics.
@@ -47,6 +50,8 @@ Rules:
 - Remove meta-phrases that point back to the lesson, for example `преподаватель рекомендует`, `на занятии`, `на уроке`, `в занятии`, `в уроке`, `урок показывает`, or `по материалу занятия`.
 - Rewrite such formulations into direct subject-based questions.
 - Write questions as direct knowledge checks about the subject, not as questions about what the teacher said or how the lesson was phrased.
+- Explain specialized terminology in parentheses at first use; when possible, formulate the question fully in Russian without losing meaning or important details.
+- Do not replace a term with a loose paraphrase when the term itself is part of the knowledge being tested.
 - Keep question formulations compact and easy to read.
 - Keep answer options compact and easy to read.
 - Keep correct and incorrect options parallel in grammar, specificity, and approximate length so the answer cannot be guessed from wording size alone.
@@ -91,11 +96,14 @@ Validation checklist:
 - coverage across the whole lesson
 - order matches the lesson order
 - no organizational questions
+- no news or current-event material
 - no more than 3 multi-answer questions in a 10-question test
 - every multi-answer question has a second line with grammatically correct Russian inflection
 - all answer options use only `+ ` and `- `
 - all options are on separate lines
 - questions are compact
+- questions are as general as possible without losing terms or meaning
+- specialized terminology is explained in parentheses, or the question is fully in Russian where possible without losing meaning or important details
 - answers are compact
 - correct and incorrect options are balanced in length and shape
 - no question tests a synthesized claim that was not explicitly taught
@@ -103,6 +111,8 @@ Validation checklist:
 - no question refers back to the lesson, the teacher, or the phrasing of the lesson
 - questions test retained knowledge rather than lesson-specific implementation trivia
 - homework-specific or demo-specific details appear only when they were taught as reusable rules or important constraints
+- answers to in-class questions appear only when they were part of explaining or developing the lesson topic
+- news and current-event updates are not used as test material
 
 ## Anti-Patterns
 
@@ -111,6 +121,7 @@ Avoid these failure modes:
 - creating fewer or more than 10 questions when the user did not ask for another count
 - putting questions in a different order than the lesson sequence
 - using organizational material as test questions
+- using news or current-event updates as test questions
 - using more than 3 multi-answer questions in a 10-question test
 - omitting the `Выберите N ...` line for a multi-answer question
 - writing the question as a Markdown heading
@@ -122,3 +133,6 @@ Avoid these failure modes:
 - inferring or inventing an intermediate conclusion and then testing that invented conclusion as if it had been said
 - adding recap language like `на занятии`, `на уроке`, `преподаватель рекомендует`, `в занятии`, or `по материалу занятия`
 - asking about one-off implementation details from the demo or homework when the same knowledge could be tested in a more general form
+- including answers to in-class questions when they did not explain or develop the lesson topic
+- using unexplained specialized terminology when a parenthetical explanation or a clear Russian formulation is possible
+- replacing a tested term with a paraphrase that loses meaning or important details
