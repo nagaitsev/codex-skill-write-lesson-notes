@@ -67,6 +67,7 @@ By default, save the finished note as a `.md` file.
 - Remove teacher references, direct speech, and quote formatting.
 - Keep terminology accurate and close to the lesson.
 - Prefer the actual teaching progression over a cleaner editorial regrouping.
+- Keep every explanation, example, definition, caveat, instruction, and standalone fragment in the thematic block and position where it appeared. Do not move isolated material to a section where it seems more logical or consolidate scattered mentions by topic; when a topic returns later, keep the later material there and cross-reference if useful.
 - Preserve major introductory, organizational, and overview blocks when they matter to understanding the lesson.
 - Preserve practically important technical and operational sub-blocks even when they seem secondary.
 - Keep separately demonstrated tools as separate blocks when they were shown separately.
@@ -83,6 +84,8 @@ By default, save the finished note as a `.md` file.
 
 - broad editorial summary instead of a faithful lesson note
 - cleaner regrouping that breaks the real order of the lesson
+- moving a fragment into a different thematic block from where it was presented
+- consolidating non-adjacent fragments about the same topic into one block
 - merging separately taught tools into one generic section
 - detached limitations section when warnings belong to a specific tool block
 - deleting examples that carry the method
@@ -98,10 +101,12 @@ By default, save the finished note as a `.md` file.
 
 - Run the final rule-by-rule note check through a separate validation subagent when subagents are available.
 - The validation subagent should return only a concrete fix list, not a rewritten note.
+- Give the validation subagent a separate fragment-placement check against the source: audit the lesson in order, flag fragments moved to another block, non-adjacent material consolidated by topic, and changes to source order; require concrete fixes for every unsupported relocation.
 - Apply those fixes in the main draft, then rerun the validation until no violations remain.
 - If the environment cannot run subagents, state that explicitly and perform the same full check inline.
 - Re-read all rules, restrictions, and anti-patterns before returning the note.
 - If any rule is broken, fix the text and run the check again.
+- Separately verify that each fragment remains in the topic block and position where it appeared in the lesson; no fragment has been moved across topics and non-adjacent material has not been consolidated.
 - Run the source-neutrality and finished-product check as a separate validation item: no source-revealing phrases; any recognition uncertainty only before `# Содержание`; the note is a complete study handout, not a retelling.
 - Split neighboring practical topics into separate `#` sections when they cover different tools, modes, problems, or tasks.
 - Keep `#` headings short and subject-based.

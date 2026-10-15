@@ -68,6 +68,7 @@ If a tool name is uncertain in the transcript, keep the block, generalize the de
 ## Structure Fidelity Rules
 
 - Preserve the real teaching order of the lesson.
+- **Mandatory fragment-placement rule:** Keep every explanation, example, definition, caveat, instruction, and other standalone fragment in the thematic block and at the point in the lesson where it was presented. Do not move a fragment to another section because it seems more logically related to that section, and do not combine scattered fragments about the same topic into one consolidated block. If a topic returns later, keep its later material at that later point; use a brief cross-reference when needed instead of relocating the content.
 - Prefer the teacher's progression through tools, stages, examples, and decisions over a cleaner taxonomic regrouping.
 - Do not reduce the lesson to a thematic squeeze or broad summary.
 - Do not merge adjacent practical topics into one top-level section if they involve different tools, interface modes, task types, or problem classes.
@@ -88,14 +89,15 @@ After drafting the note:
 
 1. Re-read all rules, restrictions, and anti-patterns for note mode.
 2. Run the final rule-by-rule note check through a separate validation subagent when subagents are available.
-3. The validation subagent must return only a concrete fix list, not a rewritten note.
-4. Apply those fixes in the main draft, then rerun the validation until no violations remain.
-5. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
-6. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
-7. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
-8. Run a separate source-neutrality and finished-product check: verify that no source-revealing phrases such as `в транскрипте название звучит как` remain; if recognition uncertainty is mentioned, verify that it appears only in the optional note before `# Содержание`; verify that the note reads as a complete study handout rather than a retelling.
-9. Run a drying pass.
-10. Return the note only after the full check passes with no known violations.
+3. Give the validation subagent a separate fragment-placement check against the source: audit the lesson in order and verify that every explanation, example, definition, caveat, instruction, and standalone fragment remains in the topic block and position where it was presented. Flag any fragment moved to another block, any non-adjacent material consolidated by topic, and any change to the source order; describe each issue as a concrete fix. Treat an unsupported relocation as a violation.
+4. The validation subagent must return only a concrete fix list, not a rewritten note.
+5. Apply those fixes in the main draft, then rerun the validation until no violations remain.
+6. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
+7. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
+8. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
+9. Run a separate source-neutrality and finished-product check: verify that no source-revealing phrases such as `в транскрипте название звучит как` remain; if recognition uncertainty is mentioned, verify that it appears only in the optional note before `# Содержание`; verify that the note reads as a complete study handout rather than a retelling.
+10. Run a drying pass.
+11. Return the note only after the full check passes with no known violations.
 
 Drying pass rules:
 
@@ -116,6 +118,8 @@ Avoid these failure modes:
 
 - broad editorial summary instead of a faithful lesson note
 - cleaner regrouping that breaks the real order of the lesson
+- moving an explanation, example, caveat, instruction, or other standalone fragment into a different thematic block from where it was presented
+- combining material from non-adjacent parts of the lesson into one section just because it concerns the same topic
 - merging separately taught tools into one generic section
 - merging neighboring practical topics into one top-level section when they belong to different tools or tasks
 - detached limitations section when warnings belong to a specific tool block
