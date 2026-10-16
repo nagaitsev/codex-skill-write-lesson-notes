@@ -13,6 +13,7 @@ Use this mode only when the user explicitly asks `Сделай содержан�
 5. Create or refresh the contents block at the top of the document.
 6. Represent each included level-1 heading as plain text in a flat bullet list in the same order as it appears in the document.
 7. Do not rewrite the body of the note unless the user asked for broader editing.
+8. Keep one existing heading per contents bullet; never combine separate headings or topics into one bullet. The source heading itself is outside scope for contents-only editing, so preserve it rather than silently rewriting it; flag a heading that combines independent topics if it materially violates the one-topic-per-heading rule.
 
 ## Restrictions
 
@@ -27,3 +28,4 @@ Use this mode only when the user explicitly asks `Сделай содержан�
 - verify that only substantive `# ` headings were included
 - verify that service blocks were excluded
 - verify that the list contains no links or anchors
+- verify that each bullet mirrors exactly one source heading and no separate topics were combined

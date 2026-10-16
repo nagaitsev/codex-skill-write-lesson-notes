@@ -32,6 +32,7 @@ Use the matching template together with the matching mode file.
 - Treat the written file as the primary final artifact.
 - When the environment supports Canvas and the user asked `Сделай тест`, prepare the test in Canvas as well, but the `.txt` file remains mandatory.
 - Always present the output as direct study material rather than as a retelling of what happened in class.
+- **One-topic-per-heading rule for every text mode:** each thematic heading must name one topic only; never combine independent topics under one heading. A genuinely unified subject or comparison taught as a whole counts as one topic. In lesson notes, use a level-1 heading for one main topic and level-3 headings only for its distinct subtopics. In timecodes, each timestamp line must represent exactly one topic. Keep the source order; do not merge separate topics for compactness.
 
 ## Shared Workflow
 
@@ -42,6 +43,7 @@ Use the matching template together with the matching mode file.
 5. Verify externally checkable details.
 6. Run the required final validation for the active mode.
 7. Save the final result to the required file format unless the user explicitly asked for chat-only output.
+8. Check topic granularity. When a separate validation subagent is available, assign this as an explicit, independent check: one topic per heading and, for timecodes, one topic per timestamp line. Also run the mode-specific checks.
 
 ## Input Scope Rule
 

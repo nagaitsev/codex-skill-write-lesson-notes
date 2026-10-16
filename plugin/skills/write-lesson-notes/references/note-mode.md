@@ -23,7 +23,9 @@ Rules:
 - Exclude `# Использованные ресурсы`, `# Ссылки на сайты и сервисы`, and other service blocks from the contents.
 - Put `---` before every thematic `#` heading after the contents block.
 - Prefer short subject-based `#` headings that name the tool, task, or topic directly.
+- **One heading, one topic:** every thematic `#` heading must name one main topic, not bundle independent topics. A combined title is acceptable only when it names one genuinely unified subject or comparison taught as a whole. Preserve lesson order and split separately taught topics into separate `#` blocks.
 - Use `###` only when the section genuinely splits into multiple meaningful subtopics.
+- Each `###` heading names one distinct subtopic within its parent `#` topic; do not bundle independent subtopics under one subheading.
 - Do not use meta-subheadings such as `Практический вывод`, `Почему это ценно`, or `Что здесь считается хорошим результатом`.
 - Do not create a `###` heading for a single short block unless it marks a real switch to another tool, mode, example, rule, or limitation.
 
@@ -90,14 +92,15 @@ After drafting the note:
 1. Re-read all rules, restrictions, and anti-patterns for note mode.
 2. Run the final rule-by-rule note check through a separate validation subagent when subagents are available.
 3. Give the validation subagent a separate fragment-placement check against the source: audit the lesson in order and verify that every explanation, example, definition, caveat, instruction, and standalone fragment remains in the topic block and position where it was presented. Flag any fragment moved to another block, any non-adjacent material consolidated by topic, and any change to the source order; describe each issue as a concrete fix. Treat an unsupported relocation as a violation.
-4. The validation subagent must return only a concrete fix list, not a rewritten note.
-5. Apply those fixes in the main draft, then rerun the validation until no violations remain.
-6. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
-7. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
-8. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
-9. Run a separate source-neutrality and finished-product check: verify that no source-revealing phrases such as `в транскрипте название звучит как` remain; if recognition uncertainty is mentioned, verify that it appears only in the optional note before `# Содержание`; verify that the note reads as a complete study handout rather than a retelling.
-10. Run a drying pass.
-11. Return the note only after the full check passes with no known violations.
+4. Give the validation subagent a separate heading-granularity check: verify that each `#` heading names exactly one main topic, each `###` names one subtopic of its parent, and no heading combines independent topics. Return a concrete fix for every violation. A genuinely unified subject or comparison counts as one topic.
+5. The validation subagent must return only a concrete fix list, not a rewritten note.
+6. Apply those fixes in the main draft, then rerun the validation until no violations remain.
+7. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
+8. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
+9. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
+10. Run a separate source-neutrality and finished-product check: verify that no source-revealing phrases such as `в транскрипте название звучит как` remain; if recognition uncertainty is mentioned, verify that it appears only in the optional note before `# Содержание`; verify that the note reads as a complete study handout rather than a retelling.
+11. Run a drying pass.
+12. Return the note only after the full check passes with no known violations.
 
 Drying pass rules:
 
@@ -122,6 +125,7 @@ Avoid these failure modes:
 - combining material from non-adjacent parts of the lesson into one section just because it concerns the same topic
 - merging separately taught tools into one generic section
 - merging neighboring practical topics into one top-level section when they belong to different tools or tasks
+- combining independent lesson topics or subtopics under one heading
 - detached limitations section when warnings belong to a specific tool block
 - deleting examples that carry the method
 - adding recap language like `на занятии`, `урок показывает`, `преподаватель отмечает`

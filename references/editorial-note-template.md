@@ -60,6 +60,7 @@ By default, save the finished note as a `.md` file.
 - Mandatory source-neutrality check: exclude phrases such as `в транскрипте название звучит как` and any other wording that reveals the source or creation process. If recognition or transcription uncertainty needs to be reported, place it only in an optional editorial or verification note before `# Содержание`; the note itself must be a complete study handout, not a retelling.
 - Do not add filler lead-ins before lists like `Показанный прием такой` or `Сценарий выглядит так`.
 - Keep `###` headings specific and meaningful.
+- Use one topic per heading: one main topic per `#`, and one distinct subtopic per `###`. Do not bundle independent topics under a compound heading; keep separately taught subjects in separate blocks and in source order. A genuinely unified subject or comparison may have a combined title.
 - Make section titles practical and compact.
 - Prefer shorter headings when two versions express the same idea.
 - Skip the title-and-intro block if it adds no value.
@@ -102,6 +103,7 @@ By default, save the finished note as a `.md` file.
 - Run the final rule-by-rule note check through a separate validation subagent when subagents are available.
 - The validation subagent should return only a concrete fix list, not a rewritten note.
 - Give the validation subagent a separate fragment-placement check against the source: audit the lesson in order, flag fragments moved to another block, non-adjacent material consolidated by topic, and changes to source order; require concrete fixes for every unsupported relocation.
+- Give the validation subagent a separate heading-granularity check: each `#` heading must name one main topic, each `###` one subtopic of its parent, and no heading may bundle independent topics. A genuinely unified subject or comparison counts as one topic. Require a concrete fix for every violation.
 - Apply those fixes in the main draft, then rerun the validation until no violations remain.
 - If the environment cannot run subagents, state that explicitly and perform the same full check inline.
 - Re-read all rules, restrictions, and anti-patterns before returning the note.

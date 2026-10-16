@@ -33,6 +33,7 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 - While processing subtitles for timecodes, correct obvious recognition errors in the original subtitle file if they are clearly identifiable from context.
 - Limit such subtitle corrections to clear ASR mistakes in terms, names, commands, hotkeys, and other surface wording; do not rewrite meaning, compress phrasing, or retime subtitles under the guise of cleanup.
 - Prefer meaningful topic changes over line-by-line slicing.
+- **One timestamp, one topic:** each timestamp line must identify exactly one topic. Do not combine independent topics in a compound title or group them under one timestamp to shorten the list. Split at the first reliable subtitle cue for each topic, while preserving video order. A genuinely unified subject or comparison taught as one block is one topic.
 - Keep the order identical to the video order.
 - Use the start of the topic, not a decorative midpoint.
 
@@ -50,6 +51,7 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 
 ## Final Timecodes Check
 
+- When available, run a separate validation subagent and explicitly assign an independent topic-granularity check: inspect every timestamp line against the subtitles and flag any line that combines independent topics, with a concrete split point anchored to the source. The agent must return only a concrete fix list, not a rewritten timecode list. If subagents are unavailable, perform this check inline and state that limitation.
 - The input file is real subtitles, not plain text.
 - If obvious subtitle recognition errors were found, they were corrected in the original subtitle file before finalizing.
 - Only clear subtitle recognition mistakes were corrected; the subtitle meaning, structure, and timings were not editorially rewritten.
@@ -58,5 +60,6 @@ Use this file when the user explicitly asks `Сделай таймкоды`.
 - Each line starts with a timestamp in strict `чч:мм:сс` format.
 - No line uses shortened timestamp forms such as `0:00` or `6:33`.
 - Each line keeps only timestamp plus topic title unless expansion was explicitly requested.
+- Each timestamp line represents exactly one topic; no line bundles independent topics.
 - The topic order matches the subtitle order.
 - No timestamp was guessed without support in the subtitles.
