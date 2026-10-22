@@ -57,6 +57,7 @@ By default, save the finished note as a `.md` file.
 - Prefer prose paragraphs over bullets.
 - Write as direct subject matter notes, not as a recap of what happened in class.
 - Remove phrases like `на занятии`, `преподаватель отмечает`, `урок показывает`.
+- Simplify event-framed statements into direct recommendations without losing details. For example, replace `В занятии рекомендован ориентир около 70–150 строк и не более 200: оставляйте AGENTS.md компактным.` with `Ориентир — около 70–150 строк, не более 200; оставляйте AGENTS.md компактным.`
 - Mandatory source-neutrality check: exclude phrases such as `в транскрипте название звучит как` and any other wording that reveals the source or creation process. If recognition or transcription uncertainty needs to be reported, place it only in an optional editorial or verification note before `# Содержание`; the note itself must be a complete study handout, not a retelling.
 - Do not add filler lead-ins before lists like `Показанный прием такой` or `Сценарий выглядит так`.
 - Keep `###` headings specific and meaningful.
@@ -91,6 +92,7 @@ By default, save the finished note as a `.md` file.
 - detached limitations section when warnings belong to a specific tool block
 - deleting examples that carry the method
 - adding recap language like `на занятии`, `урок показывает`, `преподаватель отмечает`
+- retaining `В занятии рекомендован ориентир...` instead of stating the recommendation directly
 - source-revealing phrases such as `в транскрипте название звучит как`
 - recognition or transcription uncertainty inside the substantive note instead of an optional pre-contents note
 - a recap of the lesson instead of a complete study handout
@@ -109,7 +111,7 @@ By default, save the finished note as a `.md` file.
 - Re-read all rules, restrictions, and anti-patterns before returning the note.
 - If any rule is broken, fix the text and run the check again.
 - Separately verify that each fragment remains in the topic block and position where it appeared in the lesson; no fragment has been moved across topics and non-adjacent material has not been consolidated.
-- Run the source-neutrality and finished-product check as a separate validation item: no source-revealing phrases; any recognition uncertainty only before `# Содержание`; the note is a complete study handout, not a retelling.
+- Run the direct-language, source-neutrality, and finished-product check as a separate validation item: no references to the lesson or speaker; simplify framing into direct statements without losing details; no source-revealing phrases; any recognition uncertainty only before `# Содержание`; the note is a complete study handout, not a retelling.
 - Split neighboring practical topics into separate `#` sections when they cover different tools, modes, problems, or tasks.
 - Keep `#` headings short and subject-based.
 - Remove meta-subheadings like `Практический вывод` or `Почему это ценно` when a direct heading or immediate paragraph works better.

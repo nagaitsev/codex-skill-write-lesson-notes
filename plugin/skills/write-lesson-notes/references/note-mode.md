@@ -36,6 +36,7 @@ Rules:
 - Remove direct speech, references to the teacher, and quote formatting.
 - Remove meta-phrases that point back to the lesson, for example `на занятии разобрано`, `на уроке показано`, `преподаватель отмечает`, `урок показывает`.
 - Rewrite such constructions into direct declarative statements.
+- **Simplify and remove lesson framing:** state the recommendation or fact directly; do not preserve wording such as `В занятии рекомендован ориентир...`. Keep all numbers, terms, limits, and meaning. For example, replace `В занятии рекомендован ориентир около 70–150 строк и не более 200: оставляйте AGENTS.md компактным.` with `Ориентир — около 70–150 строк, не более 200; оставляйте AGENTS.md компактным.`
 - **Mandatory source-neutrality rule:** Do not include phrases such as `в транскрипте название звучит как` or any other wording that reveals the source or process used to create the note. If recognition or transcription uncertainty must be mentioned, put it in an optional editorial or verification note before `# Содержание`; this notice is not required. The note itself must be a complete study handout, not a retelling.
 - Do not insert filler lead-ins before lists or procedures, for example `Показанный рабочий прием такой:` or `Сценарий старта очень простой:`.
 - Start lists, steps, and criteria immediately unless one short factual sentence is necessary.
@@ -98,7 +99,7 @@ After drafting the note:
 7. If the environment cannot run subagents, state that explicitly and perform the same full check inline.
 8. Verify that every file used for the note was explicitly provided or explicitly approved by the user.
 9. Verify that the final result was written to a `.md` file unless the user explicitly requested chat-only output.
-10. Run a separate source-neutrality and finished-product check: verify that no source-revealing phrases such as `в транскрипте название звучит как` remain; if recognition uncertainty is mentioned, verify that it appears only in the optional note before `# Содержание`; verify that the note reads as a complete study handout rather than a retelling.
+10. Run a separate direct-language, source-neutrality, and finished-product check: remove references to the lesson or speaker such as `в занятии рекомендован`, `на занятии`, and `на уроке`; simplify framing into direct subject-matter statements without losing terms, numbers, limits, or meaning; verify that no source-revealing phrases such as `в транскрипте название звучит как` remain; if recognition uncertainty is mentioned, verify that it appears only in the optional note before `# Содержание`; verify that the note reads as a complete study handout rather than a retelling.
 11. Run a drying pass.
 12. Return the note only after the full check passes with no known violations.
 
@@ -129,6 +130,7 @@ Avoid these failure modes:
 - detached limitations section when warnings belong to a specific tool block
 - deleting examples that carry the method
 - adding recap language like `на занятии`, `урок показывает`, `преподаватель отмечает`
+- retaining event-framing such as `В занятии рекомендован ориентир...` instead of stating the recommendation directly
 - including source-revealing phrases such as `в транскрипте название звучит как`
 - placing recognition or transcription uncertainty inside the substantive note instead of an optional note before `# Содержание`
 - returning a recap of the lesson instead of a complete study handout
